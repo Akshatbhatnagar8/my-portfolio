@@ -184,6 +184,27 @@
     .pc-exit.partial {
       background: rgba(251,146,60,.15); color: #fb923c; border-color: rgba(251,146,60,.3);
     }
+    .pc-exit.writeoff {
+      background: rgba(239,68,68,.15); color: #f87171; border-color: rgba(239,68,68,.3);
+    }
+    .pc-logo-init {
+      width: 100%; height: 54px; display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; font-weight: 800; color: var(--muted); letter-spacing: .04em;
+    }
+
+    /* ── VALUE ADD ── */
+    #valueadd { }
+    .va-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .va-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 16px; padding: 28px; transition: border-color .2s;
+    }
+    .va-card:hover { border-color: rgba(79,142,247,.4); }
+    .va-icon { font-size: 1.6rem; margin-bottom: 14px; }
+    .va-title { font-weight: 700; font-size: .98rem; margin-bottom: 8px; }
+    .va-desc { font-size: .84rem; color: var(--muted); line-height: 1.65; }
+    @media (max-width: 700px) { .va-grid { grid-template-columns: 1fr; } }
+
     .pc-role {
       font-size: .78rem; color: var(--accent); font-weight: 600; letter-spacing: .02em;
     }
@@ -299,6 +320,7 @@
       <li><a href="#about">About</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#valueadd">Value Add</a></li>
       <li><a href="#education">Education</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -467,6 +489,7 @@
         <button class="filter-btn active" data-filter="all">All</button>
         <button class="filter-btn" data-filter="lead">Investment Lead</button>
         <button class="filter-btn" data-filter="exited">Exited</button>
+        <button class="filter-btn" data-filter="writeoff">Write-off</button>
       </div>
       <div class="portfolio-grid">
 
@@ -610,6 +633,72 @@
           <a class="pc-visit" href="https://argoid.com" target="_blank">Visit ↗</a>
         </div>
 
+        <div class="portfolio-card" data-lead="false" data-exited="false" data-writeoff="true">
+          <div class="pc-logo-wrap"><div class="pc-logo-init">SC</div></div>
+          <div class="pc-top"><span class="pc-name">SubCom</span><span class="pc-exit writeoff">Write-off</span></div>
+          <div class="pc-role">Investment Lead · Board Observer</div>
+          <div class="pc-location">📍 Pune, India</div>
+          <div class="pc-desc">AI-driven endpoint cybersecurity platform using Habituation Neural Fabric for real-time device trust scoring.</div>
+          <div class="pc-tags"><span class="pc-tag">Cybersecurity</span><span class="pc-tag">AI/ML</span><span class="pc-tag">DeepTech</span></div>
+        </div>
+
+        <div class="portfolio-card" data-lead="false" data-exited="false" data-writeoff="true">
+          <div class="pc-logo-wrap"><div class="pc-logo-init">KE</div></div>
+          <div class="pc-top"><span class="pc-name">Koinearth</span><span class="pc-exit writeoff">Write-off</span></div>
+          <div class="pc-role">Investment Lead · Board Observer</div>
+          <div class="pc-location">📍 Bengaluru, India</div>
+          <div class="pc-desc">Blockchain and AI-based B2B supply chain platform (MarketsN) for inventory visibility, invoice financing, and contract enforcement.</div>
+          <div class="pc-tags"><span class="pc-tag">Blockchain</span><span class="pc-tag">Supply Chain</span><span class="pc-tag">B2B</span></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUE ADD -->
+  <section id="valueadd">
+    <div class="fade-in">
+      <div class="section-label">Value Add</div>
+      <h2>How I support founders</h2>
+      <p style="color:var(--muted); font-size:.95rem; margin-bottom:40px; margin-top:-28px;">Hands-on support across the full investment lifecycle — from first cheque to exit.</p>
+      <div class="va-grid">
+
+        <div class="va-card">
+          <div class="va-icon">💰</div>
+          <div class="va-title">Fundraising Support</div>
+          <div class="va-desc">Facilitated bridge rounds and LP introductions, advised on fundraise timing and positioning, and supported term-sheet negotiations — including in tough market conditions where traditional capital was scarce.</div>
+        </div>
+
+        <div class="va-card">
+          <div class="va-icon">🧑‍💼</div>
+          <div class="va-title">Leadership & Team Building</div>
+          <div class="va-desc">Guided key hires across CFO, COS, and senior sales roles. Flagged leadership gaps early, evaluated founder equity structures at term-sheet stage, and helped build cohesive A-level teams that outlast the founder.</div>
+        </div>
+
+        <div class="va-card">
+          <div class="va-icon">📋</div>
+          <div class="va-title">Board Governance</div>
+          <div class="va-desc">Conducted regular MIS and budget-vs-actual reviews, monitored statutory compliance, surfaced governance risks early, and ensured investor rights were actively protected across board decisions.</div>
+        </div>
+
+        <div class="va-card">
+          <div class="va-icon">🚀</div>
+          <div class="va-title">GTM & Commercialisation</div>
+          <div class="va-desc">Helped portfolio companies sharpen go-to-market strategy, improve pilot-to-contract conversion rates, identify high-value customer segments, and avoid the trap of revenue concentration in a single account.</div>
+        </div>
+
+        <div class="va-card">
+          <div class="va-icon">🏁</div>
+          <div class="va-title">Exit Planning & Execution</div>
+          <div class="va-desc">Identified strategic acquirers and secondary buyers, onboarded investment bankers, aligned founders to exit timelines, and structured transactions to protect LP interests — including cross-border secondary exits.</div>
+        </div>
+
+        <div class="va-card">
+          <div class="va-icon">📊</div>
+          <div class="va-title">Portfolio Monitoring</div>
+          <div class="va-desc">Tracked portfolio health through standardised financial reporting, flagged runway risks proactively, drove operational best practices, and benchmarked performance against sector peers to prioritise intervention early.</div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -745,7 +834,8 @@
         document.querySelectorAll('.portfolio-card').forEach(card => {
           const show = f === 'all'
             || (f === 'lead' && card.dataset.lead === 'true')
-            || (f === 'exited' && (card.dataset.exited === 'true' || card.dataset.exited === 'partial'));
+            || (f === 'exited' && (card.dataset.exited === 'true' || card.dataset.exited === 'partial'))
+            || (f === 'writeoff' && card.dataset.writeoff === 'true');
           card.style.display = show ? '' : 'none';
         });
       });
