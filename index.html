@@ -181,8 +181,14 @@
       background: rgba(124,92,191,.2); color: #a78bfa; border: 1px solid rgba(124,92,191,.3);
       padding: 2px 8px; border-radius: 6px; white-space: nowrap;
     }
+    .pc-exit.partial {
+      background: rgba(251,146,60,.15); color: #fb923c; border-color: rgba(251,146,60,.3);
+    }
     .pc-role {
       font-size: .78rem; color: var(--accent); font-weight: 600; letter-spacing: .02em;
+    }
+    .pc-location {
+      font-size: .75rem; color: var(--muted); display: flex; align-items: center; gap: 4px;
     }
     .pc-desc { font-size: .84rem; color: var(--muted); line-height: 1.55; flex: 1; }
     .pc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
@@ -195,11 +201,11 @@
       border-radius: 10px;
       padding: 10px 14px;
       display: flex; align-items: center; justify-content: center;
-      height: 64px; width: 100%;
+      height: 76px; width: 100%;
       margin-bottom: 8px;
     }
     .pc-logo {
-      height: 44px; width: auto; max-width: 140px;
+      height: 54px; width: auto; max-width: 160px;
       object-fit: contain;
       filter: grayscale(1);
       opacity: 0.75;
@@ -459,6 +465,7 @@
       <p style="color:var(--muted); font-size:.95rem; margin-bottom:32px; margin-top:-28px;">Investment Lead &amp; Board Observer across all portfolio companies.</p>
       <div class="portfolio-filter">
         <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="lead">Investment Lead</button>
         <button class="filter-btn" data-filter="exited">Exited</button>
       </div>
       <div class="portfolio-grid">
@@ -467,6 +474,7 @@
           <div class="pc-logo-wrap"><img class="pc-logo" src="https://www.yournest.in/api/uploads/images/portfolio/6b671ab0c1494623ab921e388f620f59.png" alt="Wiom" /></div>
           <div class="pc-top"><span class="pc-name">Wiom</span></div>
           <div class="pc-role">Investment Lead · Board Observer</div>
+          <div class="pc-location">📍 Gurugram, India</div>
           <div class="pc-desc">India's largest PM-WANI public data office aggregator platform.</div>
           <div class="pc-tags"><span class="pc-tag">Consumer/RetailTech</span><span class="pc-tag">Telecom</span></div>
           <a class="pc-visit" href="https://wiom.in" target="_blank">Visit ↗</a>
@@ -476,6 +484,7 @@
           <div class="pc-logo-wrap"><img class="pc-logo" src="https://www.yournest.in/api/uploads/images/portfolio/8dbf18459b0c4f7dbcf1b10a1280a8d4.png" alt="QpiAI" /></div>
           <div class="pc-top"><span class="pc-name">QpiAI</span></div>
           <div class="pc-role">Investment Lead · Board Observer</div>
+          <div class="pc-location">📍 Bengaluru, India</div>
           <div class="pc-desc">AI and quantum computing platform for complex industry problems.</div>
           <div class="pc-tags"><span class="pc-tag">Quantum Compute</span><span class="pc-tag">AI/ML</span></div>
           <a class="pc-visit" href="https://qpiai.tech" target="_blank">Visit ↗</a>
@@ -485,6 +494,7 @@
           <div class="pc-logo-wrap"><img class="pc-logo" src="https://www.yournest.in/api/uploads/images/portfolio/5a37ac7e87dc498a9ef8998974593d2b.png" alt="Exponent Energy" /></div>
           <div class="pc-top"><span class="pc-name">Exponent Energy</span></div>
           <div class="pc-role">Investment Lead · Board Observer</div>
+          <div class="pc-location">📍 Bengaluru, India</div>
           <div class="pc-desc">EV fast-charging platform enabling refuelling-like convenience for electric vehicles.</div>
           <div class="pc-tags"><span class="pc-tag">Energy</span><span class="pc-tag">EV</span><span class="pc-tag">Mobility</span></div>
           <a class="pc-visit" href="https://exponent.energy" target="_blank">Visit ↗</a>
@@ -494,6 +504,7 @@
           <div class="pc-logo-wrap"><img class="pc-logo" src="https://www.yournest.in/api/uploads/images/portfolio/689ffcfae05e4ce898324135a06d68c0.png" alt="Cron AI" /></div>
           <div class="pc-top"><span class="pc-name">Cron AI</span></div>
           <div class="pc-role">Investment Lead · Board Observer</div>
+          <div class="pc-location">📍 Noida, India</div>
           <div class="pc-desc">IP-led 3D sensing platform for intrusion detection and surveillance.</div>
           <div class="pc-tags"><span class="pc-tag">AI/ML</span><span class="pc-tag">Security</span><span class="pc-tag">Mobility</span></div>
           <a class="pc-visit" href="https://cronai.in" target="_blank">Visit ↗</a>
@@ -503,6 +514,7 @@
           <div class="pc-logo-wrap"><img class="pc-logo" src="https://www.yournest.in/api/uploads/images/portfolio/2e34d8fc1494483683fbed1e5c679bec.png" alt="Trezi" /></div>
           <div class="pc-top"><span class="pc-name">Trezi</span></div>
           <div class="pc-role">Investment Lead · Board Observer</div>
+          <div class="pc-location">📍 New Delhi, India</div>
           <div class="pc-desc">VR-based design visualisation and collaboration platform for architecture, engineering and construction.</div>
           <div class="pc-tags"><span class="pc-tag">AR/VR</span><span class="pc-tag">Real Estate</span><span class="pc-tag">EnterpriseTech</span></div>
           <a class="pc-visit" href="https://trezi.com" target="_blank">Visit ↗</a>
@@ -511,7 +523,8 @@
         <div class="portfolio-card" data-lead="false" data-exited="false">
           <div class="pc-logo-wrap"><img class="pc-logo" src="https://www.yournest.in/api/uploads/images/portfolio/69651c824e684e1584d6895a04eef1eb.png" alt="MapMyCrop" /></div>
           <div class="pc-top"><span class="pc-name">MapMyCrop</span></div>
-          <div class="pc-role">Investment Lead · Board Observer</div>
+          <div class="pc-role">Board Observer</div>
+          <div class="pc-location">📍 Gujarat, India</div>
           <div class="pc-desc">Satellite-driven agritech platform for crop monitoring and yield optimisation.</div>
           <div class="pc-tags"><span class="pc-tag">AgriTech</span><span class="pc-tag">AI/ML</span></div>
           <a class="pc-visit" href="https://mapmycrop.com" target="_blank">Visit ↗</a>
@@ -520,7 +533,8 @@
         <div class="portfolio-card" data-lead="false" data-exited="false">
           <div class="pc-logo-wrap"><img class="pc-logo" src="https://www.yournest.in/api/uploads/images/portfolio/79109df9f35d4e3eb74048c09a2f1479.png" alt="ThinkMetal" /></div>
           <div class="pc-top"><span class="pc-name">ThinkMetal</span></div>
-          <div class="pc-role">Investment Lead · Board Observer</div>
+          <div class="pc-role">Board Observer</div>
+          <div class="pc-location">📍 Bengaluru, India</div>
           <div class="pc-desc">Compact 3D metal printing for low-volume, high-precision production.</div>
           <div class="pc-tags"><span class="pc-tag">Manufacturing</span><span class="pc-tag">3D Printing</span><span class="pc-tag">DeepTech</span></div>
           <a class="pc-visit" href="https://thinkmetal.co" target="_blank">Visit ↗</a>
@@ -529,7 +543,8 @@
         <div class="portfolio-card" data-lead="false" data-exited="true">
           <div class="pc-logo-wrap"><img class="pc-logo" src="https://www.yournest.in/api/uploads/images/portfolio/2c671476f1ec448d998abd90f6c3b61f.png" alt="Arya.ai" /></div>
           <div class="pc-top"><span class="pc-name">Arya.ai</span><span class="pc-exit">Exited</span></div>
-          <div class="pc-role">Investment Lead · Board Observer</div>
+          <div class="pc-role">Board Observer</div>
+          <div class="pc-location">📍 Mumbai, India</div>
           <div class="pc-desc">Enterprise AI automation platform for finance workflows.</div>
           <div class="pc-tags"><span class="pc-tag">FinTech</span><span class="pc-tag">AI/ML</span><span class="pc-tag">EnterpriseTech</span></div>
           <a class="pc-visit" href="https://arya.ai" target="_blank">Visit ↗</a>
@@ -538,16 +553,18 @@
         <div class="portfolio-card" data-lead="false" data-exited="false">
           <div class="pc-logo-wrap"><img class="pc-logo" src="https://www.yournest.in/api/uploads/images/portfolio/f23a64bf7a624b0683c3da604c30354f.png" alt="RuleZero" /></div>
           <div class="pc-top"><span class="pc-name">RuleZero</span></div>
-          <div class="pc-role">Investment Lead · Board Observer</div>
+          <div class="pc-role">Board Observer</div>
+          <div class="pc-location">📍 Bengaluru, India</div>
           <div class="pc-desc">Equity and private markets management platform for fund administration.</div>
           <div class="pc-tags"><span class="pc-tag">FinTech</span><span class="pc-tag">SaaS</span></div>
           <a class="pc-visit" href="https://rulezero.com" target="_blank">Visit ↗</a>
         </div>
 
-        <div class="portfolio-card" data-lead="false" data-exited="false">
+        <div class="portfolio-card" data-lead="false" data-exited="partial">
           <div class="pc-logo-wrap"><img class="pc-logo" src="https://www.yournest.in/api/uploads/images/portfolio/aa7ba83648b5428cad946b6a55909230.png" alt="Altergo" /></div>
-          <div class="pc-top"><span class="pc-name">Altergo</span></div>
-          <div class="pc-role">Investment Lead · Board Observer</div>
+          <div class="pc-top"><span class="pc-name">Altergo</span><span class="pc-exit partial">Partial Exit</span></div>
+          <div class="pc-role">Board Observer</div>
+          <div class="pc-location">📍 Bengaluru, India</div>
           <div class="pc-desc">Advanced battery management software for optimising EV fleet performance.</div>
           <div class="pc-tags"><span class="pc-tag">Energy</span><span class="pc-tag">EV</span><span class="pc-tag">SaaS</span></div>
           <a class="pc-visit" href="https://altergo.in" target="_blank">Visit ↗</a>
@@ -556,16 +573,38 @@
         <div class="portfolio-card" data-lead="false" data-exited="false">
           <div class="pc-logo-wrap"><img class="pc-logo" src="https://www.yournest.in/api/uploads/images/portfolio/7d9ebd6c52154117a29bbb3771da5e51.png" alt="Lightspeed Photonics" /></div>
           <div class="pc-top"><span class="pc-name">Lightspeed Photonics</span></div>
-          <div class="pc-role">Investment Lead · Board Observer</div>
+          <div class="pc-role">Board Observer</div>
+          <div class="pc-location">📍 Bengaluru, India</div>
           <div class="pc-desc">Optoelectronic processors accelerating AI and high-performance computing workloads.</div>
           <div class="pc-tags"><span class="pc-tag">Semiconductor</span><span class="pc-tag">DeepTech</span><span class="pc-tag">AI/HPC</span></div>
           <a class="pc-visit" href="https://lightspeedphotonics.com" target="_blank">Visit ↗</a>
         </div>
 
         <div class="portfolio-card" data-lead="false" data-exited="true">
+          <div class="pc-logo-wrap"><img class="pc-logo" src="https://www.yournest.in/api/uploads/images/portfolio/e997fb88a1874e8f848cbcb4c8bacea6.png" alt="Uniphore" /></div>
+          <div class="pc-top"><span class="pc-name">Uniphore</span><span class="pc-exit">Exited</span></div>
+          <div class="pc-role">Board Observer</div>
+          <div class="pc-location">📍 Chennai, India</div>
+          <div class="pc-desc">Enterprise AI platform for conversation intelligence and automation at scale.</div>
+          <div class="pc-tags"><span class="pc-tag">AI/ML</span><span class="pc-tag">EnterpriseTech</span><span class="pc-tag">SaaS</span></div>
+          <a class="pc-visit" href="https://uniphore.com" target="_blank">Visit ↗</a>
+        </div>
+
+        <div class="portfolio-card" data-lead="false" data-exited="false">
+          <div class="pc-logo-wrap"><img class="pc-logo" src="https://www.yournest.in/api/uploads/images/portfolio/f7fd8e3384e74fbf94e2f42d1021f72d.png" alt="SmartQ" /></div>
+          <div class="pc-top"><span class="pc-name">SmartQ</span></div>
+          <div class="pc-role">Board Observer</div>
+          <div class="pc-location">📍 Bengaluru, India</div>
+          <div class="pc-desc">Workplace food-tech platform managing cafeteria operations for large enterprises.</div>
+          <div class="pc-tags"><span class="pc-tag">FoodTech</span><span class="pc-tag">EnterpriseTech</span><span class="pc-tag">SaaS</span></div>
+          <a class="pc-visit" href="https://smartq.in" target="_blank">Visit ↗</a>
+        </div>
+
+        <div class="portfolio-card" data-lead="false" data-exited="true">
           <div class="pc-logo-wrap"><img class="pc-logo" src="https://www.yournest.in/api/uploads/images/portfolio/6ca605238a134d15a640c39740abeab9.jpg" alt="Argoid" /></div>
           <div class="pc-top"><span class="pc-name">Argoid</span><span class="pc-exit">Exited</span></div>
-          <div class="pc-role">Investment Lead · Board Observer</div>
+          <div class="pc-role">Board Observer</div>
+          <div class="pc-location">📍 Singapore</div>
           <div class="pc-desc">ML-powered consumer insights platform for real-time personalisation in e-commerce.</div>
           <div class="pc-tags"><span class="pc-tag">AI/ML</span><span class="pc-tag">E-Commerce</span><span class="pc-tag">EnterpriseTech</span></div>
           <a class="pc-visit" href="https://argoid.com" target="_blank">Visit ↗</a>
@@ -697,7 +736,9 @@
         btn.classList.add('active');
         const f = btn.dataset.filter;
         document.querySelectorAll('.portfolio-card').forEach(card => {
-          const show = f === 'all' || (f === 'exited' && card.dataset.exited === 'true');
+          const show = f === 'all'
+            || (f === 'lead' && card.dataset.lead === 'true')
+            || (f === 'exited' && (card.dataset.exited === 'true' || card.dataset.exited === 'partial'));
           card.style.display = show ? '' : 'none';
         });
       });
