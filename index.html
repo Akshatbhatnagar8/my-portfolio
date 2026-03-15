@@ -159,6 +159,38 @@
     }
     .tl-bullets li::before { content: '–'; position: absolute; left: 0; color: var(--accent2); }
 
+    /* ── PORTFOLIO ── */
+    .portfolio-filter { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 36px; }
+    .filter-btn {
+      padding: 6px 18px; border-radius: 100px; font-size: .82rem; font-weight: 600;
+      border: 1px solid var(--border); background: var(--tag-bg); color: var(--muted);
+      cursor: pointer; transition: all .2s;
+    }
+    .filter-btn.active, .filter-btn:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .portfolio-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 16px; padding: 22px; transition: border-color .2s, transform .2s;
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .portfolio-card:hover { border-color: rgba(79,142,247,.5); transform: translateY(-2px); }
+    .pc-top { display: flex; justify-content: space-between; align-items: flex-start; }
+    .pc-name { font-weight: 700; font-size: 1rem; }
+    .pc-exit {
+      font-size: .7rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+      background: rgba(124,92,191,.2); color: #a78bfa; border: 1px solid rgba(124,92,191,.3);
+      padding: 2px 8px; border-radius: 6px; white-space: nowrap;
+    }
+    .pc-role {
+      font-size: .78rem; color: var(--accent); font-weight: 600; letter-spacing: .02em;
+    }
+    .pc-desc { font-size: .84rem; color: var(--muted); line-height: 1.55; flex: 1; }
+    .pc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+    .pc-tag {
+      font-size: .72rem; background: var(--tag-bg); border: 1px solid var(--border);
+      color: var(--muted); padding: 2px 9px; border-radius: 100px;
+    }
+
     /* ── EDUCATION ── */
     .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
     .edu-card {
@@ -235,6 +267,7 @@
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#experience">Experience</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
       <li><a href="#education">Education</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -393,6 +426,107 @@
     </div>
   </section>
 
+  <!-- PORTFOLIO -->
+  <section id="portfolio">
+    <div class="fade-in">
+      <div class="section-label">Portfolio</div>
+      <h2>Startups I've backed</h2>
+      <div class="portfolio-filter">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="lead">Investment Lead</button>
+        <button class="filter-btn" data-filter="active">Active</button>
+        <button class="filter-btn" data-filter="exited">Exited</button>
+      </div>
+      <div class="portfolio-grid">
+
+        <div class="portfolio-card" data-lead="true" data-exited="false">
+          <div class="pc-top"><span class="pc-name">Wiom</span></div>
+          <div class="pc-role">Investment Lead · Board Observer</div>
+          <div class="pc-desc">India's largest PM-WANI public data office aggregator platform.</div>
+          <div class="pc-tags"><span class="pc-tag">Consumer/RetailTech</span><span class="pc-tag">Telecom</span></div>
+        </div>
+
+        <div class="portfolio-card" data-lead="true" data-exited="false">
+          <div class="pc-top"><span class="pc-name">QpiAI</span></div>
+          <div class="pc-role">Investment Lead · Board Observer</div>
+          <div class="pc-desc">AI and quantum computing platform for complex industry problems.</div>
+          <div class="pc-tags"><span class="pc-tag">Quantum Compute</span><span class="pc-tag">AI/ML</span></div>
+        </div>
+
+        <div class="portfolio-card" data-lead="true" data-exited="false">
+          <div class="pc-top"><span class="pc-name">Exponent Energy</span></div>
+          <div class="pc-role">Investment Lead · Board Observer</div>
+          <div class="pc-desc">EV fast-charging platform enabling refuelling-like convenience for electric vehicles.</div>
+          <div class="pc-tags"><span class="pc-tag">Energy</span><span class="pc-tag">EV</span><span class="pc-tag">Mobility</span></div>
+        </div>
+
+        <div class="portfolio-card" data-lead="true" data-exited="false">
+          <div class="pc-top"><span class="pc-name">Cron AI</span></div>
+          <div class="pc-role">Investment Lead · Board Observer</div>
+          <div class="pc-desc">IP-led 3D sensing platform for intrusion detection and surveillance.</div>
+          <div class="pc-tags"><span class="pc-tag">AI/ML</span><span class="pc-tag">Security</span><span class="pc-tag">Mobility</span></div>
+        </div>
+
+        <div class="portfolio-card" data-lead="true" data-exited="false">
+          <div class="pc-top"><span class="pc-name">Trezi</span></div>
+          <div class="pc-role">Investment Lead · Board Observer</div>
+          <div class="pc-desc">VR-based design visualisation and collaboration platform for architecture, engineering and construction.</div>
+          <div class="pc-tags"><span class="pc-tag">AR/VR</span><span class="pc-tag">Real Estate</span><span class="pc-tag">EnterpriseTech</span></div>
+        </div>
+
+        <div class="portfolio-card" data-lead="false" data-exited="false">
+          <div class="pc-top"><span class="pc-name">MapMyCrop</span></div>
+          <div class="pc-role">Portfolio Company</div>
+          <div class="pc-desc">Satellite-driven agritech platform for crop monitoring and yield optimisation.</div>
+          <div class="pc-tags"><span class="pc-tag">AgriTech</span><span class="pc-tag">AI/ML</span></div>
+        </div>
+
+        <div class="portfolio-card" data-lead="false" data-exited="false">
+          <div class="pc-top"><span class="pc-name">ThinkMetal</span></div>
+          <div class="pc-role">Portfolio Company</div>
+          <div class="pc-desc">Compact 3D metal printing for low-volume, high-precision production.</div>
+          <div class="pc-tags"><span class="pc-tag">Manufacturing</span><span class="pc-tag">3D Printing</span><span class="pc-tag">DeepTech</span></div>
+        </div>
+
+        <div class="portfolio-card" data-lead="false" data-exited="true">
+          <div class="pc-top"><span class="pc-name">Arya.ai</span><span class="pc-exit">Exited</span></div>
+          <div class="pc-role">Portfolio Company</div>
+          <div class="pc-desc">Enterprise AI automation platform for finance workflows.</div>
+          <div class="pc-tags"><span class="pc-tag">FinTech</span><span class="pc-tag">AI/ML</span><span class="pc-tag">EnterpriseTech</span></div>
+        </div>
+
+        <div class="portfolio-card" data-lead="false" data-exited="false">
+          <div class="pc-top"><span class="pc-name">RuleZero</span></div>
+          <div class="pc-role">Portfolio Company</div>
+          <div class="pc-desc">Equity and private markets management platform for fund administration.</div>
+          <div class="pc-tags"><span class="pc-tag">FinTech</span><span class="pc-tag">SaaS</span></div>
+        </div>
+
+        <div class="portfolio-card" data-lead="false" data-exited="false">
+          <div class="pc-top"><span class="pc-name">Altergo</span></div>
+          <div class="pc-role">Portfolio Company</div>
+          <div class="pc-desc">Advanced battery management software for optimising EV fleet performance.</div>
+          <div class="pc-tags"><span class="pc-tag">Energy</span><span class="pc-tag">EV</span><span class="pc-tag">SaaS</span></div>
+        </div>
+
+        <div class="portfolio-card" data-lead="false" data-exited="false">
+          <div class="pc-top"><span class="pc-name">Lightspeed Photonics</span></div>
+          <div class="pc-role">Portfolio Company</div>
+          <div class="pc-desc">Optoelectronic processors accelerating AI and high-performance computing workloads.</div>
+          <div class="pc-tags"><span class="pc-tag">Semiconductor</span><span class="pc-tag">DeepTech</span><span class="pc-tag">AI/HPC</span></div>
+        </div>
+
+        <div class="portfolio-card" data-lead="false" data-exited="true">
+          <div class="pc-top"><span class="pc-name">Argoid</span><span class="pc-exit">Exited</span></div>
+          <div class="pc-role">Portfolio Company</div>
+          <div class="pc-desc">ML-powered consumer insights platform for real-time personalisation in e-commerce.</div>
+          <div class="pc-tags"><span class="pc-tag">AI/ML</span><span class="pc-tag">E-Commerce</span><span class="pc-tag">EnterpriseTech</span></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- EDUCATION -->
   <section id="education">
     <div class="fade-in">
@@ -507,6 +641,22 @@
     fadeEls.forEach(el => obs.observe(el));
     // Fallback: make all visible after 800ms if observer hasn't fired
     setTimeout(() => fadeEls.forEach(el => el.classList.add('visible')), 800);
+
+    // Portfolio filter
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const f = btn.dataset.filter;
+        document.querySelectorAll('.portfolio-card').forEach(card => {
+          const show = f === 'all'
+            || (f === 'lead' && card.dataset.lead === 'true')
+            || (f === 'active' && card.dataset.exited === 'false')
+            || (f === 'exited' && card.dataset.exited === 'true');
+          card.style.display = show ? '' : 'none';
+        });
+      });
+    });
 
     // Smooth active nav highlight
     const sections = document.querySelectorAll('section[id]');
