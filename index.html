@@ -1,856 +1,558 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Akshat Bhatnagar</title>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --bg:       #0a0c10;
-      --surface:  #111318;
-      --border:   #1e2128;
-      --accent:   #4f8ef7;
-      --accent2:  #7c5cbf;
-      --text:     #e8eaf0;
-      --muted:    #7a7f8e;
-      --tag-bg:   #181c26;
+<html lang="en" style="color-scheme: light"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Akshat Bhatnagar | VC &amp; MBA Professional</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                colors: {
+                    "primary": "#1B3A6B",
+                    "primary-light": "#2A5499",
+                    "text-dark": "#111827",
+                    "background-light": "#FFFFFF",
+                },
+                fontFamily: {
+                    "display": ["Inter", "sans-serif"]
+                },
+                borderRadius: { "DEFAULT": "0.75rem", "lg": "0.75rem", "xl": "1rem", "full": "100px" },
+            },
+        },
     }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      font-size: 16px;
-    }
-
-    /* ── NAV ── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 18px 40px;
-      background: rgba(10, 12, 16, 0.85);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-logo { font-weight: 700; font-size: 1.05rem; letter-spacing: .04em; color: var(--text); text-decoration: none; }
-    .nav-links { display: flex; gap: 32px; list-style: none; }
-    .nav-links a { color: var(--muted); text-decoration: none; font-size: .9rem; transition: color .2s; }
-    .nav-links a:hover { color: var(--text); }
-
-    /* ── HERO ── */
-    #hero {
-      min-height: 100vh;
-      display: flex; align-items: center; justify-content: center;
-      padding: 120px 40px 80px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero-glow {
-      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -60%);
-      width: 700px; height: 700px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(79,142,247,.12) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .hero-content { position: relative; max-width: 680px; }
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: var(--tag-bg); border: 1px solid var(--border);
-      border-radius: 100px; padding: 6px 16px; font-size: .8rem;
-      color: var(--accent); margin-bottom: 28px; letter-spacing: .04em;
-    }
-    .hero-badge span { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: pulse 2s infinite; }
-    @keyframes pulse { 0%,100%{opacity:1}50%{opacity:.4} }
-    h1 {
-      font-size: clamp(2.6rem, 6vw, 4.2rem);
-      font-weight: 800; line-height: 1.08; letter-spacing: -.02em;
-      margin-bottom: 20px;
-    }
-    h1 .grad {
-      background: linear-gradient(135deg, #4f8ef7 0%, #7c5cbf 50%, #a78bfa 100%);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .hero-sub {
-      font-size: 1.1rem; color: var(--muted); max-width: 520px; margin: 0 auto 40px;
-    }
-    .hero-ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-    .btn {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 12px 28px; border-radius: 10px; font-size: .95rem;
-      font-weight: 600; text-decoration: none; transition: all .2s; cursor: pointer; border: none;
-    }
-    .btn-primary {
-      background: linear-gradient(135deg, #4f8ef7, #7c5cbf);
-      color: #fff;
-    }
-    .btn-primary:hover { opacity: .85; transform: translateY(-1px); }
-    .btn-outline {
-      background: transparent; color: var(--text);
-      border: 1px solid var(--border);
-    }
-    .btn-outline:hover { background: var(--surface); transform: translateY(-1px); }
-
-    .hero-stats {
-      display: flex; justify-content: center; gap: 48px; margin-top: 64px;
-      padding-top: 40px; border-top: 1px solid var(--border);
-      flex-wrap: wrap;
-    }
-    .stat-num { font-size: 1.9rem; font-weight: 800; color: var(--text); }
-    .stat-label { font-size: .8rem; color: var(--muted); margin-top: 2px; letter-spacing: .04em; text-transform: uppercase; }
-
-    /* ── SECTIONS ── */
-    section { padding: 96px 40px; max-width: 900px; margin: 0 auto; }
-    .section-label {
-      font-size: .75rem; letter-spacing: .12em; text-transform: uppercase;
-      color: var(--accent); font-weight: 700; margin-bottom: 12px;
-    }
-    h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); font-weight: 800; letter-spacing: -.02em; margin-bottom: 48px; }
-
-    /* ── ABOUT ── */
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
-    .about-text p { color: var(--muted); margin-bottom: 16px; font-size: 1.05rem; }
-    .about-text p:last-child { margin-bottom: 0; }
-    .skills-grid { display: flex; flex-direction: column; gap: 14px; }
-    .skill-item label {
-      display: flex; justify-content: space-between;
-      font-size: .85rem; color: var(--muted); margin-bottom: 6px;
-    }
-    .skill-bar { height: 4px; background: var(--border); border-radius: 4px; overflow: hidden; }
-    .skill-fill { height: 100%; border-radius: 4px; background: linear-gradient(90deg, #4f8ef7, #7c5cbf); }
-    .tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
-    .tag {
-      background: var(--tag-bg); border: 1px solid var(--border);
-      padding: 5px 14px; border-radius: 100px; font-size: .82rem; color: var(--muted);
-    }
-
-    /* ── EXPERIENCE ── */
-    .timeline { position: relative; padding-left: 28px; }
-    .timeline::before {
-      content: ''; position: absolute; left: 0; top: 8px; bottom: 8px;
-      width: 1px; background: var(--border);
-    }
-    .tl-item { position: relative; margin-bottom: 44px; }
-    .tl-item:last-child { margin-bottom: 0; }
-    .tl-dot {
-      position: absolute; left: -34px; top: 6px;
-      width: 12px; height: 12px; border-radius: 50%;
-      background: var(--accent); border: 2px solid var(--bg);
-      box-shadow: 0 0 0 3px rgba(79,142,247,.2);
-    }
-    .tl-dot.dim { background: var(--muted); box-shadow: none; }
-    .tl-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; flex-wrap: wrap; margin-bottom: 6px; }
-    .tl-role { font-weight: 700; font-size: 1.05rem; }
-    .tl-org { color: var(--accent); font-size: .9rem; margin-bottom: 4px; }
-    .tl-period {
-      font-size: .78rem; color: var(--muted); white-space: nowrap;
-      background: var(--tag-bg); border: 1px solid var(--border);
-      padding: 3px 10px; border-radius: 6px;
-    }
-    .tl-bullets { list-style: none; margin-top: 10px; }
-    .tl-bullets li {
-      color: var(--muted); font-size: .9rem; padding-left: 16px; position: relative;
-      margin-bottom: 6px;
-    }
-    .tl-bullets li::before { content: '–'; position: absolute; left: 0; color: var(--accent2); }
-
-    /* ── PORTFOLIO ── */
-    .portfolio-filter { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 36px; }
-    .filter-btn {
-      padding: 6px 18px; border-radius: 100px; font-size: .82rem; font-weight: 600;
-      border: 1px solid var(--border); background: var(--tag-bg); color: var(--muted);
-      cursor: pointer; transition: all .2s;
-    }
-    .filter-btn.active, .filter-btn:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
-    .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-    .portfolio-card {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 16px; padding: 22px; transition: border-color .2s, transform .2s;
-      display: flex; flex-direction: column; gap: 10px;
-    }
-    .portfolio-card:hover { border-color: rgba(79,142,247,.5); transform: translateY(-2px); }
-    .pc-top { display: flex; justify-content: space-between; align-items: flex-start; }
-    .pc-name { font-weight: 700; font-size: 1rem; }
-    .pc-exit {
-      font-size: .7rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
-      background: rgba(124,92,191,.2); color: #a78bfa; border: 1px solid rgba(124,92,191,.3);
-      padding: 2px 8px; border-radius: 6px; white-space: nowrap;
-    }
-    .pc-exit.partial {
-      background: rgba(251,146,60,.15); color: #fb923c; border-color: rgba(251,146,60,.3);
-    }
-    .pc-exit.writeoff {
-      background: rgba(239,68,68,.15); color: #f87171; border-color: rgba(239,68,68,.3);
-    }
-    .pc-logo-init {
-      width: 100%; height: 54px; display: flex; align-items: center; justify-content: center;
-      font-size: 1.3rem; font-weight: 800; color: var(--muted); letter-spacing: .04em;
-    }
-
-    /* ── VALUE ADD ── */
-    #valueadd { }
-    .va-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-    .va-card {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 16px; padding: 28px; transition: border-color .2s;
-    }
-    .va-card:hover { border-color: rgba(79,142,247,.4); }
-    .va-icon { font-size: 1.6rem; margin-bottom: 14px; }
-    .va-title { font-weight: 700; font-size: .98rem; margin-bottom: 8px; }
-    .va-desc { font-size: .84rem; color: var(--muted); line-height: 1.65; }
-    @media (max-width: 700px) { .va-grid { grid-template-columns: 1fr; } }
-
-    .pc-role {
-      font-size: .78rem; color: var(--accent); font-weight: 600; letter-spacing: .02em;
-    }
-    .pc-location {
-      font-size: .75rem; color: var(--muted); display: flex; align-items: center; gap: 4px;
-    }
-    .pc-desc { font-size: .84rem; color: var(--muted); line-height: 1.55; flex: 1; }
-    .pc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
-    .pc-tag {
-      font-size: .72rem; background: var(--tag-bg); border: 1px solid var(--border);
-      color: var(--muted); padding: 2px 9px; border-radius: 100px;
-    }
-    .pc-logo-wrap {
-      background: #fff;
-      border-radius: 10px;
-      padding: 10px 14px;
-      display: flex; align-items: center; justify-content: center;
-      height: 76px; width: 100%;
-      margin-bottom: 8px;
-    }
-    .pc-logo {
-      height: 54px; width: auto; max-width: 160px;
-      object-fit: contain;
-      filter: grayscale(1);
-      opacity: 0.75;
-      transition: filter .3s, opacity .3s;
-    }
-    .portfolio-card:hover .pc-logo {
-      filter: grayscale(0);
-      opacity: 1;
-    }
-    .pc-visit {
-      display: inline-flex; align-items: center; gap: 4px;
-      font-size: .75rem; color: var(--accent); margin-top: 6px;
-      text-decoration: none; transition: opacity .2s;
-    }
-    .pc-visit:hover { opacity: .7; }
-
-    /* ── EDUCATION ── */
-    .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-    .edu-card {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 16px; padding: 28px; transition: border-color .2s;
-    }
-    .edu-card:hover { border-color: var(--accent); }
-    .edu-icon { font-size: 1.6rem; margin-bottom: 14px; }
-    .edu-degree { font-weight: 700; font-size: 1rem; margin-bottom: 4px; }
-    .edu-school { color: var(--accent); font-size: .88rem; margin-bottom: 6px; }
-    .edu-year { color: var(--muted); font-size: .82rem; }
-    .edu-meta { margin-top: 8px; font-size: .82rem; color: var(--muted); }
-
-    /* ── BEYOND ── */
-    .beyond-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-    .beyond-card {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 16px; padding: 24px; transition: border-color .2s;
-    }
-    .beyond-card:hover { border-color: var(--border); border-color: rgba(79,142,247,.4); }
-    .beyond-title { font-weight: 700; font-size: .95rem; margin-bottom: 8px; }
-    .beyond-desc { color: var(--muted); font-size: .86rem; line-height: 1.6; }
-    .beyond-icon { font-size: 1.4rem; margin-bottom: 12px; }
-    .hobbies-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
-    .pill {
-      background: var(--tag-bg); border: 1px solid var(--border);
-      padding: 4px 12px; border-radius: 100px; font-size: .8rem; color: var(--muted);
-    }
-    .lang-item { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; font-size: .87rem; }
-    .lang-level { color: var(--muted); font-size: .8rem; }
-
-    /* ── CONTACT ── */
-    #contact { text-align: center; }
-    .contact-card {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 24px; padding: 60px 40px; display: inline-block;
-      width: 100%; max-width: 600px;
-    }
-    .contact-links { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin-top: 32px; }
-    .contact-link {
-      display: flex; align-items: center; gap: 8px;
-      color: var(--muted); text-decoration: none; font-size: .9rem;
-      background: var(--tag-bg); border: 1px solid var(--border);
-      padding: 10px 20px; border-radius: 10px; transition: all .2s;
-    }
-    .contact-link:hover { color: var(--text); border-color: var(--accent); }
-
-    /* ── FOOTER ── */
-    footer {
-      text-align: center; padding: 32px; color: var(--muted);
-      font-size: .82rem; border-top: 1px solid var(--border);
-    }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 700px) {
-      nav { padding: 16px 20px; }
-      .nav-links { gap: 20px; }
-      section { padding: 72px 20px; }
-      .about-grid, .edu-grid, .beyond-grid { grid-template-columns: 1fr; }
-      .hero-stats { gap: 32px; }
-    }
-
-    /* ── FADE-IN ── */
-    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
-    .fade-in.visible { opacity: 1; transform: none; }
-    @media (prefers-reduced-motion: reduce) { .fade-in { opacity: 1; transform: none; } }
-  </style>
-</head>
-<body>
-
-  <!-- NAV -->
-  <nav>
-    <a class="nav-logo" href="#hero">AB</a>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#portfolio">Portfolio</a></li>
-      <li><a href="#valueadd">Value Add</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-
-  <!-- HERO -->
-  <section id="hero">
-    <div class="hero-glow"></div>
-    <div class="hero-content">
-      <div class="hero-badge"><span></span>Open to opportunities</div>
-      <h1>Akshat<br><span class="grad">Bhatnagar</span></h1>
-      <p class="hero-sub">MBA Candidate at IESE Business School · ex-Senior Investment Professional at YourNest Venture Capital.</p>
-      <div class="hero-ctas">
-        <a href="mailto:akshatbhatnagar08@gmail.com" class="btn btn-primary">Get in Touch</a>
-        <a href="https://www.linkedin.com/in/akshbhatnagar" target="_blank" class="btn btn-outline">LinkedIn →</a>
-      </div>
-      <div class="hero-stats">
-        <div>
-          <div class="stat-num">5,000+</div>
-          <div class="stat-label">Startups Assessed</div>
-        </div>
-        <div>
-          <div class="stat-num">$60M</div>
-          <div class="stat-label">Funds Managed</div>
-        </div>
-        <div>
-          <div class="stat-num">10+</div>
-          <div class="stat-label">Investments Led</div>
-        </div>
-        <div>
-          <div class="stat-num">7+</div>
-          <div class="stat-label">Years in VC</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="fade-in">
-      <div class="section-label">About</div>
-      <h2>Investing in what's next</h2>
-      <div class="about-grid">
-        <div class="about-text">
-          <p>I'm an MBA candidate at IESE Business School, and a former venture capital professional with over 7 years at YourNest — one of India's top-rated VC funds by CRISIL (S&P Global).</p>
-          <p>My work spans the full investment lifecycle: sourcing and evaluating deals, structuring investments, supporting portfolio growth, and executing exits. I've assessed thousands of startups and led investments across 7 sectors and 3 geographies.</p>
-          <p>I'm a qualified Chartered Accountant (ACCA, UK) and hold a BBA in Finance, which grounds my investment thesis in rigorous financial analysis.</p>
-          <div class="tags">
-            <span class="tag">Venture Capital</span>
-            <span class="tag">Startup Evaluation</span>
-            <span class="tag">Financial Modelling</span>
-            <span class="tag">ESG</span>
-            <span class="tag">Investor Relations</span>
-            <span class="tag">Portfolio Management</span>
-          </div>
-        </div>
-        <div class="skills-grid">
-          <div class="skill-item">
-            <label><span>Deal Sourcing & Evaluation</span><span>95%</span></label>
-            <div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div>
-          </div>
-          <div class="skill-item">
-            <label><span>Financial Modelling & Valuation</span><span>90%</span></label>
-            <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
-          </div>
-          <div class="skill-item">
-            <label><span>Portfolio Management</span><span>88%</span></label>
-            <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
-          </div>
-          <div class="skill-item">
-            <label><span>Investor Relations & LP Management</span><span>85%</span></label>
-            <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
-          </div>
-          <div class="skill-item">
-            <label><span>ESG & Compliance</span><span>80%</span></label>
-            <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- EXPERIENCE -->
-  <section id="experience">
-    <div class="fade-in">
-      <div class="section-label">Experience</div>
-      <h2>Career journey</h2>
-      <div class="timeline">
-
-        <div class="tl-item">
-          <div class="tl-dot"></div>
-          <div class="tl-header">
-            <div>
-              <div class="tl-role">Senior Associate – Investment Management</div>
-              <div class="tl-org">YourNest Venture Capital</div>
-            </div>
-            <span class="tl-period">Mar 2024 – Aug 2025</span>
-          </div>
-          <ul class="tl-bullets">
-            <li>Leading deal sourcing, evaluation, and execution across 7 sectors with $20M+ deployed.</li>
-            <li>Ideated "YourNest SOAR" — a fast-track deal program that received 1,900+ deals in 2 weeks.</li>
-            <li>Board observer on 10 portfolio companies; driving MIS reviews, fundraises, and growth hacking.</li>
-            <li>Managed VC syndication relationships with 10+ top-tier India funds.</li>
-          </ul>
-        </div>
-
-        <div class="tl-item">
-          <div class="tl-dot dim"></div>
-          <div class="tl-header">
-            <div>
-              <div class="tl-role">Associate – Investment Management</div>
-              <div class="tl-org">YourNest Venture Capital</div>
-            </div>
-            <span class="tl-period">Mar 2022 – Mar 2024</span>
-          </div>
-          <ul class="tl-bullets">
-            <li>Led partial exit of Ion Energy (US-based) at 0.4x MOIC; contributed to Uniphore exit at 7.7x MOIC.</li>
-            <li>Performed valuation analysis on 26+ portfolio companies using DCF, market, and transaction approaches.</li>
-            <li>Standardised best practices in portfolio companies, saving 1+ month in annual audit processes.</li>
-          </ul>
-        </div>
-
-        <div class="tl-item">
-          <div class="tl-dot dim"></div>
-          <div class="tl-header">
-            <div>
-              <div class="tl-role">Analyst – Investment Management</div>
-              <div class="tl-org">YourNest Venture Capital</div>
-            </div>
-            <span class="tl-period">Jun 2020 – Mar 2022</span>
-          </div>
-          <ul class="tl-bullets">
-            <li>Assessed 5,000+ startups; led 10+ investments including 3 overseas deals.</li>
-            <li>Financial modelling for business plan evaluation, driving 20–30% higher portfolio valuations.</li>
-            <li>Supervised ESG adoption and compliance tracking across portfolio.</li>
-          </ul>
-        </div>
-
-        <div class="tl-item">
-          <div class="tl-dot dim"></div>
-          <div class="tl-header">
-            <div>
-              <div class="tl-role">Analyst – Investor Relations</div>
-              <div class="tl-org">YourNest Venture Capital</div>
-            </div>
-            <span class="tl-period">Aug 2018 – Jun 2020</span>
-          </div>
-          <ul class="tl-bullets">
-            <li>Raised $35M from LPs including SIDBI, EDF, family offices, and HNIs.</li>
-            <li>Managed 200+ investor relationships and led LP due diligence for 20+ international LPs.</li>
-            <li>Prepared quarterly/annual fund reports and led regulatory reporting to SEBI & Trustees.</li>
-          </ul>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- PORTFOLIO -->
-  <section id="portfolio">
-    <div class="fade-in">
-      <div class="section-label">Portfolio</div>
-      <h2>Startups I've backed</h2>
-      <p style="color:var(--muted); font-size:.95rem; margin-bottom:32px; margin-top:-28px;">Investment Lead &amp; Board Observer across all portfolio companies.</p>
-      <div class="portfolio-filter">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="lead">Investment Lead</button>
-        <button class="filter-btn" data-filter="exited">Exited</button>
-        <button class="filter-btn" data-filter="writeoff">Write-off</button>
-      </div>
-      <div class="portfolio-grid">
-
-        <div class="portfolio-card" data-lead="true" data-exited="false">
-          <div class="pc-logo-wrap"><img class="pc-logo" src="https://www.yournest.in/api/uploads/images/portfolio/6b671ab0c1494623ab921e388f620f59.png" alt="Wiom" /></div>
-          <div class="pc-top"><span class="pc-name">Wiom</span></div>
-          <div class="pc-role">Investment Lead · Board Observer</div>
-          <div class="pc-location">📍 Gurugram, India</div>
-          <div class="pc-desc">India's largest PM-WANI public data office aggregator platform.</div>
-          <div class="pc-tags"><span class="pc-tag">Consumer/RetailTech</span><span class="pc-tag">Telecom</span></div>
-          <a class="pc-visit" href="https://wiom.in" target="_blank">Visit ↗</a>
-        </div>
-
-        <div class="portfolio-card" data-lead="true" data-exited="false">
-          <div class="pc-logo-wrap"><img class="pc-logo" src="https://www.yournest.in/api/uploads/images/portfolio/8dbf18459b0c4f7dbcf1b10a1280a8d4.png" alt="QpiAI" /></div>
-          <div class="pc-top"><span class="pc-name">QpiAI</span></div>
-          <div class="pc-role">Investment Lead · Board Observer</div>
-          <div class="pc-location">📍 Bengaluru, India</div>
-          <div class="pc-desc">AI and quantum computing platform for complex industry problems.</div>
-          <div class="pc-tags"><span class="pc-tag">Quantum Compute</span><span class="pc-tag">AI/ML</span></div>
-          <a class="pc-visit" href="https://qpiai.tech" target="_blank">Visit ↗</a>
-        </div>
-
-        <div class="portfolio-card" data-lead="true" data-exited="false">
-          <div class="pc-logo-wrap"><img class="pc-logo" src="https://www.yournest.in/api/uploads/images/portfolio/5a37ac7e87dc498a9ef8998974593d2b.png" alt="Exponent Energy" /></div>
-          <div class="pc-top"><span class="pc-name">Exponent Energy</span></div>
-          <div class="pc-role">Investment Lead · Board Observer</div>
-          <div class="pc-location">📍 Bengaluru, India</div>
-          <div class="pc-desc">EV fast-charging platform enabling refuelling-like convenience for electric vehicles.</div>
-          <div class="pc-tags"><span class="pc-tag">Energy</span><span class="pc-tag">EV</span><span class="pc-tag">Mobility</span></div>
-          <a class="pc-visit" href="https://exponent.energy" target="_blank">Visit ↗</a>
-        </div>
-
-        <div class="portfolio-card" data-lead="true" data-exited="false">
-          <div class="pc-logo-wrap"><img class="pc-logo" src="https://www.yournest.in/api/uploads/images/portfolio/689ffcfae05e4ce898324135a06d68c0.png" alt="Cron AI" /></div>
-          <div class="pc-top"><span class="pc-name">Cron AI</span></div>
-          <div class="pc-role">Investment Lead · Board Observer</div>
-          <div class="pc-location">📍 Noida, India</div>
-          <div class="pc-desc">IP-led 3D sensing platform for intrusion detection and surveillance.</div>
-          <div class="pc-tags"><span class="pc-tag">AI/ML</span><span class="pc-tag">Security</span><span class="pc-tag">Mobility</span></div>
-          <a class="pc-visit" href="https://cronai.in" target="_blank">Visit ↗</a>
-        </div>
-
-        <div class="portfolio-card" data-lead="true" data-exited="false">
-          <div class="pc-logo-wrap"><img class="pc-logo" src="https://www.yournest.in/api/uploads/images/portfolio/2e34d8fc1494483683fbed1e5c679bec.png" alt="Trezi" /></div>
-          <div class="pc-top"><span class="pc-name">Trezi</span></div>
-          <div class="pc-role">Investment Lead · Board Observer</div>
-          <div class="pc-location">📍 New Delhi, India</div>
-          <div class="pc-desc">VR-based design visualisation and collaboration platform for architecture, engineering and construction.</div>
-          <div class="pc-tags"><span class="pc-tag">AR/VR</span><span class="pc-tag">Real Estate</span><span class="pc-tag">EnterpriseTech</span></div>
-          <a class="pc-visit" href="https://trezi.com" target="_blank">Visit ↗</a>
-        </div>
-
-        <div class="portfolio-card" data-lead="false" data-exited="false">
-          <div class="pc-logo-wrap"><img class="pc-logo" src="https://www.yournest.in/api/uploads/images/portfolio/69651c824e684e1584d6895a04eef1eb.png" alt="MapMyCrop" /></div>
-          <div class="pc-top"><span class="pc-name">MapMyCrop</span></div>
-          <div class="pc-role">Investment Lead · Board Observer</div>
-          <div class="pc-location">📍 Gujarat, India</div>
-          <div class="pc-desc">Satellite-driven agritech platform for crop monitoring and yield optimisation.</div>
-          <div class="pc-tags"><span class="pc-tag">AgriTech</span><span class="pc-tag">AI/ML</span></div>
-          <a class="pc-visit" href="https://mapmycrop.com" target="_blank">Visit ↗</a>
-        </div>
-
-        <div class="portfolio-card" data-lead="false" data-exited="false">
-          <div class="pc-logo-wrap"><img class="pc-logo" src="https://www.yournest.in/api/uploads/images/portfolio/79109df9f35d4e3eb74048c09a2f1479.png" alt="ThinkMetal" /></div>
-          <div class="pc-top"><span class="pc-name">ThinkMetal</span></div>
-          <div class="pc-role">Investment Lead · Board Observer</div>
-          <div class="pc-location">📍 Bengaluru, India</div>
-          <div class="pc-desc">Compact 3D metal printing for low-volume, high-precision production.</div>
-          <div class="pc-tags"><span class="pc-tag">Manufacturing</span><span class="pc-tag">3D Printing</span><span class="pc-tag">DeepTech</span></div>
-          <a class="pc-visit" href="https://thinkmetal.co" target="_blank">Visit ↗</a>
-        </div>
-
-        <div class="portfolio-card" data-lead="false" data-exited="true">
-          <div class="pc-logo-wrap"><img class="pc-logo" src="https://www.yournest.in/api/uploads/images/portfolio/2c671476f1ec448d998abd90f6c3b61f.png" alt="Arya.ai" /></div>
-          <div class="pc-top"><span class="pc-name">Arya.ai</span><span class="pc-exit">Exited</span></div>
-          <div class="pc-role">Investment Lead · Board Observer</div>
-          <div class="pc-location">📍 Mumbai, India</div>
-          <div class="pc-desc">Enterprise AI automation platform for finance workflows.</div>
-          <div class="pc-tags"><span class="pc-tag">FinTech</span><span class="pc-tag">AI/ML</span><span class="pc-tag">EnterpriseTech</span></div>
-          <a class="pc-visit" href="https://arya.ai" target="_blank">Visit ↗</a>
-        </div>
-
-        <div class="portfolio-card" data-lead="false" data-exited="false">
-          <div class="pc-logo-wrap"><img class="pc-logo" src="https://www.yournest.in/api/uploads/images/portfolio/f23a64bf7a624b0683c3da604c30354f.png" alt="RuleZero" /></div>
-          <div class="pc-top"><span class="pc-name">RuleZero</span></div>
-          <div class="pc-role">Investment Lead · Board Observer</div>
-          <div class="pc-location">📍 Bengaluru, India</div>
-          <div class="pc-desc">Equity and private markets management platform for fund administration.</div>
-          <div class="pc-tags"><span class="pc-tag">FinTech</span><span class="pc-tag">SaaS</span></div>
-          <a class="pc-visit" href="https://rulezero.com" target="_blank">Visit ↗</a>
-        </div>
-
-        <div class="portfolio-card" data-lead="false" data-exited="partial">
-          <div class="pc-logo-wrap"><img class="pc-logo" src="https://www.yournest.in/api/uploads/images/portfolio/aa7ba83648b5428cad946b6a55909230.png" alt="Altergo" /></div>
-          <div class="pc-top"><span class="pc-name">Altergo</span><span class="pc-exit partial">Partial Exit</span></div>
-          <div class="pc-role">Investment Lead · Board Observer</div>
-          <div class="pc-location">📍 Bengaluru, India</div>
-          <div class="pc-desc">Advanced battery management software for optimising EV fleet performance.</div>
-          <div class="pc-tags"><span class="pc-tag">Energy</span><span class="pc-tag">EV</span><span class="pc-tag">SaaS</span></div>
-          <a class="pc-visit" href="https://altergo.in" target="_blank">Visit ↗</a>
-        </div>
-
-        <div class="portfolio-card" data-lead="false" data-exited="false">
-          <div class="pc-logo-wrap"><img class="pc-logo" src="https://www.yournest.in/api/uploads/images/portfolio/7d9ebd6c52154117a29bbb3771da5e51.png" alt="Lightspeed Photonics" /></div>
-          <div class="pc-top"><span class="pc-name">Lightspeed Photonics</span></div>
-          <div class="pc-role">Investment Lead · Board Observer</div>
-          <div class="pc-location">📍 Bengaluru, India</div>
-          <div class="pc-desc">Optoelectronic processors accelerating AI and high-performance computing workloads.</div>
-          <div class="pc-tags"><span class="pc-tag">Semiconductor</span><span class="pc-tag">DeepTech</span><span class="pc-tag">AI/HPC</span></div>
-          <a class="pc-visit" href="https://lightspeedphotonics.com" target="_blank">Visit ↗</a>
-        </div>
-
-        <div class="portfolio-card" data-lead="false" data-exited="true">
-          <div class="pc-logo-wrap"><img class="pc-logo" src="https://www.yournest.in/api/uploads/images/portfolio/e997fb88a1874e8f848cbcb4c8bacea6.png" alt="Uniphore" /></div>
-          <div class="pc-top"><span class="pc-name">Uniphore</span><span class="pc-exit">Exited</span></div>
-          <div class="pc-role">Analyst</div>
-          <div class="pc-location">📍 Chennai, India</div>
-          <div class="pc-desc">Enterprise AI platform for conversation intelligence and automation at scale.</div>
-          <div class="pc-tags"><span class="pc-tag">AI/ML</span><span class="pc-tag">EnterpriseTech</span><span class="pc-tag">SaaS</span></div>
-          <a class="pc-visit" href="https://uniphore.com" target="_blank">Visit ↗</a>
-        </div>
-
-        <div class="portfolio-card" data-lead="false" data-exited="true">
-          <div class="pc-logo-wrap"><img class="pc-logo" src="https://www.yournest.in/api/uploads/images/portfolio/f7fd8e3384e74fbf94e2f42d1021f72d.png" alt="SmartQ" /></div>
-          <div class="pc-top"><span class="pc-name">SmartQ</span><span class="pc-exit">Exited</span></div>
-          <div class="pc-role">Analyst</div>
-          <div class="pc-location">📍 Bengaluru, India</div>
-          <div class="pc-desc">Workplace food-tech platform managing cafeteria operations for large enterprises.</div>
-          <div class="pc-tags"><span class="pc-tag">FoodTech</span><span class="pc-tag">EnterpriseTech</span><span class="pc-tag">SaaS</span></div>
-          <a class="pc-visit" href="https://smartq.in" target="_blank">Visit ↗</a>
-        </div>
-
-        <div class="portfolio-card" data-lead="false" data-exited="true">
-          <div class="pc-logo-wrap"><img class="pc-logo" src="https://www.yournest.in/api/uploads/images/portfolio/6ca605238a134d15a640c39740abeab9.jpg" alt="Argoid" /></div>
-          <div class="pc-top"><span class="pc-name">Argoid</span><span class="pc-exit">Exited</span></div>
-          <div class="pc-role">Investment Lead · Board Observer</div>
-          <div class="pc-location">📍 Singapore</div>
-          <div class="pc-desc">ML-powered consumer insights platform for real-time personalisation in e-commerce.</div>
-          <div class="pc-tags"><span class="pc-tag">AI/ML</span><span class="pc-tag">E-Commerce</span><span class="pc-tag">EnterpriseTech</span></div>
-          <a class="pc-visit" href="https://argoid.com" target="_blank">Visit ↗</a>
-        </div>
-
-        <div class="portfolio-card" data-lead="false" data-exited="false" data-writeoff="true">
-          <div class="pc-logo-wrap"><div class="pc-logo-init">SC</div></div>
-          <div class="pc-top"><span class="pc-name">SubCom</span><span class="pc-exit writeoff">Write-off</span></div>
-          <div class="pc-role">Investment Lead · Board Observer</div>
-          <div class="pc-location">📍 Bengaluru, India</div>
-          <div class="pc-desc">AI-driven endpoint cybersecurity platform using Habituation Neural Fabric for real-time device trust scoring.</div>
-          <div class="pc-tags"><span class="pc-tag">Cybersecurity</span><span class="pc-tag">AI/ML</span><span class="pc-tag">DeepTech</span></div>
-        </div>
-
-        <div class="portfolio-card" data-lead="false" data-exited="false" data-writeoff="true">
-          <div class="pc-logo-wrap"><div class="pc-logo-init">KE</div></div>
-          <div class="pc-top"><span class="pc-name">Koinearth</span><span class="pc-exit writeoff">Write-off</span></div>
-          <div class="pc-role">Investment Lead · Board Observer</div>
-          <div class="pc-location">📍 Bengaluru, India</div>
-          <div class="pc-desc">Blockchain and AI-based B2B supply chain platform (MarketsN) for inventory visibility, invoice financing, and contract enforcement.</div>
-          <div class="pc-tags"><span class="pc-tag">Blockchain</span><span class="pc-tag">Supply Chain</span><span class="pc-tag">B2B</span></div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- VALUE ADD -->
-  <section id="valueadd">
-    <div class="fade-in">
-      <div class="section-label">Value Add</div>
-      <h2>How I support founders</h2>
-      <p style="color:var(--muted); font-size:.95rem; margin-bottom:40px; margin-top:-28px;">Hands-on support across the full investment lifecycle — from first cheque to exit.</p>
-      <div class="va-grid">
-
-        <div class="va-card">
-          <div class="va-icon">💰</div>
-          <div class="va-title">Fundraising Support</div>
-          <div class="va-desc">Facilitated bridge rounds and LP introductions, advised on fundraise timing and positioning, and supported term-sheet negotiations — including in tough market conditions where traditional capital was scarce.</div>
-        </div>
-
-        <div class="va-card">
-          <div class="va-icon">🧑‍💼</div>
-          <div class="va-title">Leadership & Team Building</div>
-          <div class="va-desc">Guided key hires across CFO, COS, and senior sales roles. Flagged leadership gaps early, evaluated founder equity structures at term-sheet stage, and helped build cohesive A-level teams that outlast the founder.</div>
-        </div>
-
-        <div class="va-card">
-          <div class="va-icon">📋</div>
-          <div class="va-title">Board Governance</div>
-          <div class="va-desc">Conducted regular MIS and budget-vs-actual reviews, monitored statutory compliance, surfaced governance risks early, and ensured investor rights were actively protected across board decisions.</div>
-        </div>
-
-        <div class="va-card">
-          <div class="va-icon">🚀</div>
-          <div class="va-title">GTM & Commercialisation</div>
-          <div class="va-desc">Helped portfolio companies sharpen go-to-market strategy, improve pilot-to-contract conversion rates, identify high-value customer segments, and avoid the trap of revenue concentration in a single account.</div>
-        </div>
-
-        <div class="va-card">
-          <div class="va-icon">🏁</div>
-          <div class="va-title">Exit Planning & Execution</div>
-          <div class="va-desc">Identified strategic acquirers and secondary buyers, onboarded investment bankers, aligned founders to exit timelines, and structured transactions to protect LP interests — including cross-border secondary exits.</div>
-        </div>
-
-        <div class="va-card">
-          <div class="va-icon">📊</div>
-          <div class="va-title">Portfolio Monitoring</div>
-          <div class="va-desc">Tracked portfolio health through standardised financial reporting, flagged runway risks proactively, drove operational best practices, and benchmarked performance against sector peers to prioritise intervention early.</div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- EDUCATION -->
-  <section id="education">
-    <div class="fade-in">
-      <div class="section-label">Education</div>
-      <h2>Academic background</h2>
-      <div class="edu-grid">
-        <div class="edu-card">
-          <div class="edu-icon">🎓</div>
-          <div class="edu-degree">Master of Business Administration (MBA)</div>
-          <div class="edu-school">IESE Business School, Spain</div>
-          <div class="edu-year">2025 – Present</div>
-          <div class="edu-meta">Full-time MBA at one of Europe's top-ranked business schools.</div>
-        </div>
-        <div class="edu-card">
-          <div class="edu-icon">🎓</div>
-          <div class="edu-degree">Chartered Accountant (ACCA)</div>
-          <div class="edu-school">Association of Certified Chartered Accountants, UK</div>
-          <div class="edu-year">Affiliate Member · Sep 2018</div>
-          <div class="edu-meta">CPA Equivalent — rigorous professional qualification in accounting, finance, and business.</div>
-        </div>
-        <div class="edu-card">
-          <div class="edu-icon">📚</div>
-          <div class="edu-degree">Bachelor of Business Administration</div>
-          <div class="edu-school">Christ University, Bangalore, India</div>
-          <div class="edu-year">Finance & Accountancy · Apr 2018</div>
-          <div class="edu-meta">First Class Division · CGPA 3.23 — specialisation in Finance and Accountancy.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- BEYOND WORK -->
-  <section id="beyond">
-    <div class="fade-in">
-      <div class="section-label">Beyond Work</div>
-      <h2>The full picture</h2>
-      <div class="beyond-grid">
-
-        <div class="beyond-card">
-          <div class="beyond-icon">🌍</div>
-          <div class="beyond-title">Languages</div>
-          <div>
-            <div class="lang-item"><span>English</span><span class="lang-level">Fluent</span></div>
-            <div class="lang-item"><span>Hindi</span><span class="lang-level">Native</span></div>
-            <div class="lang-item"><span>Indonesian</span><span class="lang-level">Fluent</span></div>
-            <div class="lang-item"><span>French</span><span class="lang-level">Basic</span></div>
-          </div>
-        </div>
-
-        <div class="beyond-card">
-          <div class="beyond-icon">🤝</div>
-          <div class="beyond-title">Volunteering</div>
-          <div class="beyond-desc">
-            Taught English to underprivileged children (Nursery–5th Grade) at <strong>U&I Org</strong>, New Delhi (2021–2023). Led weekly leadership classes for 1,000+ students at Christ University as part of the LEGO Club (2016–2018).
-          </div>
-        </div>
-
-        <div class="beyond-card">
-          <div class="beyond-icon">🎨</div>
-          <div class="beyond-title">Hobbies</div>
-          <div class="beyond-desc">Curiosity takes me far — literally.</div>
-          <div class="hobbies-pills">
-            <span class="pill">Boardgames</span>
-            <span class="pill">Acrylic Painting</span>
-            <span class="pill">Surfing</span>
-            <span class="pill">Snorkeling</span>
-            <span class="pill">Hiking</span>
-            <span class="pill">Cycling</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="fade-in">
-      <div class="section-label">Contact</div>
-      <h2>Let's connect</h2>
-      <div class="contact-card">
-        <p style="color:var(--muted); font-size:1rem; max-width:400px; margin:0 auto;">
-          Whether you're a founder, fellow investor, or just want to talk startups — I'm always happy to chat.
-        </p>
-        <div class="contact-links">
-          <a href="mailto:akshatbhatnagar08@gmail.com" class="contact-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-            akshatbhatnagar08@gmail.com
-          </a>
-          <a href="https://www.linkedin.com/in/akshbhatnagar" target="_blank" class="contact-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-            LinkedIn
-          </a>
-          <a href="tel:+917259661585" class="contact-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            +91 72596 61585
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <p>© 2026 Akshat Bhatnagar · Gurgaon, India</p>
-  </footer>
-
-  <script>
-    // Fade-in on scroll
-    const fadeEls = document.querySelectorAll('.fade-in');
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          obs.unobserve(e.target);
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style type="text/tailwindcss">
+    @layer utilities {
+        .card {
+            @apply bg-white border border-slate-200 rounded-[12px] hover:shadow-lg transition-all duration-300;
         }
-      });
-    }, { threshold: 0, rootMargin: '0px 0px 100px 0px' });
-    fadeEls.forEach(el => obs.observe(el));
-    // Fallback: make all visible after 800ms if observer hasn't fired
-    setTimeout(() => fadeEls.forEach(el => el.classList.add('visible')), 800);
+        .pill {
+            @apply rounded-[100px] px-4 py-1.5 text-sm font-medium border border-slate-200 transition-colors cursor-pointer;
+        }
+        .pc-logo-wrap {
+            @apply h-16 w-full bg-white border border-slate-100 rounded-lg mb-4 flex items-center justify-center overflow-hidden;
+        }
+        .pc-logo-init {
+            @apply text-slate-400 font-bold text-lg;
+        }
+    }
+</style>
+</head>
+<body class="bg-[#FFFFFF] text-[#111827] font-display selection:bg-primary/30">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<div class="px-8 md:px-40 flex flex-1 justify-center py-5">
+<div class="layout-content-container flex flex-col max-w-[1200px] flex-1">
 
-    // Portfolio filter
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const f = btn.dataset.filter;
-        document.querySelectorAll('.portfolio-card').forEach(card => {
-          const show = f === 'all'
-            || (f === 'lead' && card.dataset.lead === 'true')
-            || (f === 'exited' && (card.dataset.exited === 'true' || card.dataset.exited === 'partial'))
-            || (f === 'writeoff' && card.dataset.writeoff === 'true');
-          card.style.display = show ? '' : 'none';
-        });
+<!-- NAV -->
+<header class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#E5E7EB] bg-white/90 backdrop-blur-md px-6 md:px-10 py-4 mb-8">
+  <div class="flex items-center gap-4 text-primary">
+    <h2 class="text-2xl font-black leading-tight tracking-tighter">AB</h2>
+  </div>
+  <nav class="flex items-center gap-6 md:gap-8">
+    <a class="text-slate-600 hover:text-primary text-sm font-medium transition-colors" href="#about">About</a>
+    <a class="text-slate-600 hover:text-primary text-sm font-medium transition-colors" href="#experience">Experience</a>
+    <a class="text-slate-600 hover:text-primary text-sm font-medium transition-colors" href="#portfolio">Portfolio</a>
+    <a class="text-slate-600 hover:text-primary text-sm font-medium transition-colors hidden md:block" href="#value-add">Value Add</a>
+    <a class="text-slate-600 hover:text-primary text-sm font-medium transition-colors hidden md:block" href="#education">Education</a>
+    <a class="text-slate-600 hover:text-primary text-sm font-medium transition-colors" href="#contact">Contact</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="flex flex-col items-center justify-center text-center py-20 md:py-28 px-4">
+  <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/20 text-primary text-sm font-medium mb-10 bg-white">
+    <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+    Open to opportunities
+  </div>
+  <h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-8 text-[#111827]">
+    Akshat <span class="text-primary">Bhatnagar</span>
+  </h1>
+  <p class="text-xl md:text-2xl text-slate-600 max-w-3xl mb-12 leading-relaxed font-medium">
+    MBA Candidate at IESE Business School &amp; ex-Senior Investment Professional at YourNest Venture Capital.
+  </p>
+  <div class="flex flex-wrap gap-4 justify-center">
+    <a href="#contact" class="flex items-center justify-center rounded-full h-14 px-10 bg-primary hover:bg-primary-light text-white text-lg font-bold transition-colors shadow-md">
+      Get in Touch
+    </a>
+    <a href="https://www.linkedin.com/in/akshatbhatnagar8" target="_blank" class="flex items-center justify-center rounded-full h-14 px-10 border-2 border-[#E5E7EB] hover:border-primary text-[#111827] text-lg font-bold transition-colors bg-white gap-2">
+      LinkedIn <span class="material-symbols-outlined text-base">arrow_forward</span>
+    </a>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="grid grid-cols-2 md:grid-cols-4 gap-0 py-12 px-4 border-y border-[#E5E7EB] my-8 bg-white">
+  <div class="flex flex-col items-center text-center gap-3 p-6 border-r border-[#E5E7EB]">
+    <p class="text-4xl font-black text-primary">5,000+</p>
+    <p class="text-sm font-semibold text-slate-500 uppercase tracking-widest">Startups Assessed</p>
+  </div>
+  <div class="flex flex-col items-center text-center gap-3 p-6 border-r border-[#E5E7EB] md:border-r">
+    <p class="text-4xl font-black text-primary">$60M</p>
+    <p class="text-sm font-semibold text-slate-500 uppercase tracking-widest">Funds Managed</p>
+  </div>
+  <div class="flex flex-col items-center text-center gap-3 p-6 border-r border-[#E5E7EB] border-t md:border-t-0">
+    <p class="text-4xl font-black text-primary">10+</p>
+    <p class="text-sm font-semibold text-slate-500 uppercase tracking-widest">Investments Led</p>
+  </div>
+  <div class="flex flex-col items-center text-center gap-3 p-6 border-t md:border-t-0">
+    <p class="text-4xl font-black text-primary">7+</p>
+    <p class="text-sm font-semibold text-slate-500 uppercase tracking-widest">Years in VC</p>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="py-20 px-4 md:px-8" id="about">
+  <h2 class="text-4xl font-black text-[#111827] mb-12">About Me</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+    <div class="flex flex-col gap-6 text-lg text-slate-600 leading-relaxed">
+      <p>With over 7 years of experience in early-stage venture capital, I've deployed capital across deep tech, AI/ML, climate, and enterprise SaaS startups across India.</p>
+      <p>At YourNest Venture Capital, I managed two funds with $60M AUM — leading 10+ investments from sourcing through exit, sitting on boards, and working hands-on with founders on strategy, fundraising, and team-building.</p>
+      <p>Currently pursuing my MBA at IESE Business School in Barcelona to complement investment experience with global business strategy and leadership.</p>
+    </div>
+    <div class="flex flex-col gap-10">
+      <div class="flex flex-col gap-6">
+        <h3 class="text-xl font-bold text-[#111827]">Expertise</h3>
+        <div class="space-y-4">
+          <div>
+            <div class="flex justify-between text-sm font-medium mb-1"><span>Deal Sourcing &amp; Evaluation</span><span class="text-primary">95%</span></div>
+            <div class="w-full bg-slate-100 rounded-full h-2"><div class="bg-primary h-2 rounded-full" style="width:95%"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-sm font-medium mb-1"><span>Portfolio Monitoring</span><span class="text-primary">90%</span></div>
+            <div class="w-full bg-slate-100 rounded-full h-2"><div class="bg-primary h-2 rounded-full" style="width:90%"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-sm font-medium mb-1"><span>Fundraising Support</span><span class="text-primary">85%</span></div>
+            <div class="w-full bg-slate-100 rounded-full h-2"><div class="bg-primary h-2 rounded-full" style="width:85%"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-sm font-medium mb-1"><span>Board Governance</span><span class="text-primary">80%</span></div>
+            <div class="w-full bg-slate-100 rounded-full h-2"><div class="bg-primary h-2 rounded-full" style="width:80%"></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col gap-4">
+        <h3 class="text-xl font-bold text-[#111827]">Focus Areas</h3>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-4 py-2 bg-slate-50 text-slate-700 rounded-full text-sm font-medium border border-slate-200">Deep Tech</span>
+          <span class="px-4 py-2 bg-slate-50 text-slate-700 rounded-full text-sm font-medium border border-slate-200">AI/ML</span>
+          <span class="px-4 py-2 bg-slate-50 text-slate-700 rounded-full text-sm font-medium border border-slate-200">Enterprise SaaS</span>
+          <span class="px-4 py-2 bg-slate-50 text-slate-700 rounded-full text-sm font-medium border border-slate-200">Climate Tech</span>
+          <span class="px-4 py-2 bg-slate-50 text-slate-700 rounded-full text-sm font-medium border border-slate-200">Early Stage</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="py-20 px-4 md:px-8 bg-slate-50 rounded-[24px] my-12" id="experience">
+  <h2 class="text-4xl font-black text-[#111827] mb-16 text-center">Experience</h2>
+  <div class="max-w-3xl mx-auto relative">
+    <div class="absolute left-8 top-0 bottom-0 w-0.5 bg-slate-200"></div>
+
+    <div class="relative pl-20 mb-12">
+      <div class="absolute left-[26px] top-1.5 w-4 h-4 bg-primary rounded-full border-4 border-slate-50"></div>
+      <h3 class="text-2xl font-bold text-[#111827]">IESE Business School</h3>
+      <p class="text-lg font-medium text-primary mb-2">MBA Candidate</p>
+      <p class="text-sm text-slate-500 mb-4">Sep 2025 – Present · Barcelona, Spain</p>
+      <p class="text-slate-600">Full-time MBA at one of Europe's top business schools, focusing on Strategy and Entrepreneurship. Active member of the Private Equity &amp; Venture Capital club.</p>
+    </div>
+
+    <div class="relative pl-20 mb-12">
+      <div class="absolute left-[26px] top-1.5 w-4 h-4 bg-primary rounded-full border-4 border-slate-50"></div>
+      <h3 class="text-2xl font-bold text-[#111827]">YourNest Venture Capital</h3>
+      <p class="text-lg font-medium text-primary mb-2">Senior Investment Professional</p>
+      <p class="text-sm text-slate-500 mb-3">Mar 2022 – Aug 2025 · India</p>
+      <ul class="text-slate-600 space-y-1.5 text-sm list-disc list-inside">
+        <li>Led end-to-end deal execution across deep tech, AI, and enterprise SaaS sectors</li>
+        <li>Managed portfolio companies as Investment Lead and Board Observer across 10+ investments</li>
+        <li>Drove exits including cross-border secondary transactions</li>
+      </ul>
+    </div>
+
+    <div class="relative pl-20 mb-12">
+      <div class="absolute left-[26px] top-1.5 w-4 h-4 bg-primary rounded-full border-4 border-slate-50"></div>
+      <h3 class="text-2xl font-bold text-[#111827]">YourNest Venture Capital</h3>
+      <p class="text-lg font-medium text-primary mb-2">Analyst – Investment Management</p>
+      <p class="text-sm text-slate-500 mb-3">Jun 2020 – Mar 2022 · India</p>
+      <ul class="text-slate-600 space-y-1.5 text-sm list-disc list-inside">
+        <li>Assessed 5,000+ startups; led 10+ investments including 3 overseas deals</li>
+        <li>Financial modelling for business plan evaluation, driving 20–30% higher portfolio valuations</li>
+        <li>Supervised ESG adoption and compliance tracking across portfolio</li>
+      </ul>
+    </div>
+
+    <div class="relative pl-20">
+      <div class="absolute left-[26px] top-1.5 w-4 h-4 bg-slate-400 rounded-full border-4 border-slate-50"></div>
+      <h3 class="text-2xl font-bold text-[#111827]">YourNest Venture Capital</h3>
+      <p class="text-lg font-medium text-slate-700 mb-2">Analyst – Investor Relations</p>
+      <p class="text-sm text-slate-500 mb-3">Aug 2018 – Jun 2020 · India</p>
+      <ul class="text-slate-600 space-y-1.5 text-sm list-disc list-inside">
+        <li>Raised $35M from LPs including SIDBI, EDF, family offices, and HNIs</li>
+        <li>Managed 200+ investor relationships and led LP due diligence for 20+ international LPs</li>
+        <li>Prepared quarterly/annual fund reports and led regulatory reporting to SEBI &amp; Trustees</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="py-20 px-4 md:px-8" id="portfolio">
+  <h2 class="text-4xl font-black text-[#111827] mb-4 text-center">Portfolio</h2>
+  <p class="text-center text-slate-500 mb-10">16 companies across Deep Tech, AI/ML, Climate, and Enterprise SaaS</p>
+  <div class="flex justify-center gap-3 mb-12 flex-wrap" id="portfolio-filters">
+    <button class="pill bg-primary text-white border-primary" data-filter="all">All</button>
+    <button class="pill text-slate-600 hover:bg-slate-50" data-filter="lead">Investment Lead</button>
+    <button class="pill text-slate-600 hover:bg-slate-50" data-filter="exited">Exited</button>
+    <button class="pill text-slate-600 hover:bg-slate-50" data-filter="writeoff">Write-off</button>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="portfolio-grid">
+
+    <!-- Wiom -->
+    <div class="card p-6 flex flex-col gap-3" data-lead="true" data-exited="false" data-writeoff="false">
+      <div class="pc-logo-wrap"><img src="https://www.yournest.in/api/uploads/images/portfolio/6b671ab0c1494623ab921e388f620f59.png" alt="Wiom" class="max-h-12 max-w-[140px] object-contain"/></div>
+      <div class="flex items-center justify-between"><span class="font-bold text-lg">Wiom</span></div>
+      <div class="flex flex-wrap gap-2">
+        <span class="text-xs font-semibold bg-primary/10 text-primary px-2.5 py-1 rounded-full">Investment Lead</span>
+        <span class="text-xs font-medium bg-slate-100 text-slate-600 px-2.5 py-1 rounded-full">Consumer/Telecom</span>
+      </div>
+      <p class="text-xs text-slate-500 flex items-center gap-1">📍 Gurugram, India</p>
+      <p class="text-sm text-slate-600">India's largest PM-WANI public data office aggregator platform.</p>
+      <a href="https://wiom.in" target="_blank" class="text-xs text-primary font-medium hover:underline mt-auto">Visit ↗</a>
+    </div>
+
+    <!-- QpiAI -->
+    <div class="card p-6 flex flex-col gap-3" data-lead="true" data-exited="false" data-writeoff="false">
+      <div class="pc-logo-wrap"><img src="https://www.yournest.in/api/uploads/images/portfolio/8dbf18459b0c4f7dbcf1b10a1280a8d4.png" alt="QpiAI" class="max-h-12 max-w-[140px] object-contain"/></div>
+      <div class="flex items-center justify-between"><span class="font-bold text-lg">QpiAI</span></div>
+      <div class="flex flex-wrap gap-2">
+        <span class="text-xs font-semibold bg-primary/10 text-primary px-2.5 py-1 rounded-full">Investment Lead</span>
+        <span class="text-xs font-medium bg-slate-100 text-slate-600 px-2.5 py-1 rounded-full">Quantum/AI</span>
+      </div>
+      <p class="text-xs text-slate-500 flex items-center gap-1">📍 Bengaluru, India</p>
+      <p class="text-sm text-slate-600">AI and quantum computing platform for complex industry problems.</p>
+      <a href="https://qpiai.tech" target="_blank" class="text-xs text-primary font-medium hover:underline mt-auto">Visit ↗</a>
+    </div>
+
+    <!-- Exponent Energy -->
+    <div class="card p-6 flex flex-col gap-3" data-lead="true" data-exited="false" data-writeoff="false">
+      <div class="pc-logo-wrap"><img src="https://www.yournest.in/api/uploads/images/portfolio/5a37ac7e87dc498a9ef8998974593d2b.png" alt="Exponent Energy" class="max-h-12 max-w-[140px] object-contain"/></div>
+      <div class="flex items-center justify-between"><span class="font-bold text-lg">Exponent Energy</span></div>
+      <div class="flex flex-wrap gap-2">
+        <span class="text-xs font-semibold bg-primary/10 text-primary px-2.5 py-1 rounded-full">Investment Lead</span>
+        <span class="text-xs font-medium bg-slate-100 text-slate-600 px-2.5 py-1 rounded-full">EV / Energy</span>
+      </div>
+      <p class="text-xs text-slate-500 flex items-center gap-1">📍 Bengaluru, India</p>
+      <p class="text-sm text-slate-600">EV fast-charging platform enabling refuelling-like convenience for commercial vehicles.</p>
+      <a href="https://exponent.energy" target="_blank" class="text-xs text-primary font-medium hover:underline mt-auto">Visit ↗</a>
+    </div>
+
+    <!-- Cron AI -->
+    <div class="card p-6 flex flex-col gap-3" data-lead="true" data-exited="false" data-writeoff="false">
+      <div class="pc-logo-wrap"><img src="https://www.yournest.in/api/uploads/images/portfolio/689ffcfae05e4ce898324135a06d68c0.png" alt="Cron AI" class="max-h-12 max-w-[140px] object-contain"/></div>
+      <div class="flex items-center justify-between"><span class="font-bold text-lg">Cron AI</span></div>
+      <div class="flex flex-wrap gap-2">
+        <span class="text-xs font-semibold bg-primary/10 text-primary px-2.5 py-1 rounded-full">Investment Lead</span>
+        <span class="text-xs font-medium bg-slate-100 text-slate-600 px-2.5 py-1 rounded-full">AI/Security</span>
+      </div>
+      <p class="text-xs text-slate-500 flex items-center gap-1">📍 Noida, India</p>
+      <p class="text-sm text-slate-600">IP-led 3D sensing platform for intrusion detection and surveillance.</p>
+      <a href="https://cronai.in" target="_blank" class="text-xs text-primary font-medium hover:underline mt-auto">Visit ↗</a>
+    </div>
+
+    <!-- Trezi -->
+    <div class="card p-6 flex flex-col gap-3" data-lead="true" data-exited="false" data-writeoff="false">
+      <div class="pc-logo-wrap"><img src="https://www.yournest.in/api/uploads/images/portfolio/2e34d8fc1494483683fbed1e5c679bec.png" alt="Trezi" class="max-h-12 max-w-[140px] object-contain"/></div>
+      <div class="flex items-center justify-between"><span class="font-bold text-lg">Trezi</span></div>
+      <div class="flex flex-wrap gap-2">
+        <span class="text-xs font-semibold bg-primary/10 text-primary px-2.5 py-1 rounded-full">Investment Lead</span>
+        <span class="text-xs font-medium bg-slate-100 text-slate-600 px-2.5 py-1 rounded-full">AR/VR</span>
+      </div>
+      <p class="text-xs text-slate-500 flex items-center gap-1">📍 New Delhi, India</p>
+      <p class="text-sm text-slate-600">VR-based design visualisation and collaboration platform for architecture and construction.</p>
+      <a href="https://trezi.com" target="_blank" class="text-xs text-primary font-medium hover:underline mt-auto">Visit ↗</a>
+    </div>
+
+    <!-- MapMyCrop -->
+    <div class="card p-6 flex flex-col gap-3" data-lead="true" data-exited="false" data-writeoff="false">
+      <div class="pc-logo-wrap"><img src="https://www.yournest.in/api/uploads/images/portfolio/69651c824e684e1584d6895a04eef1eb.png" alt="MapMyCrop" class="max-h-12 max-w-[140px] object-contain"/></div>
+      <div class="flex items-center justify-between"><span class="font-bold text-lg">MapMyCrop</span></div>
+      <div class="flex flex-wrap gap-2">
+        <span class="text-xs font-semibold bg-primary/10 text-primary px-2.5 py-1 rounded-full">Investment Lead</span>
+        <span class="text-xs font-medium bg-slate-100 text-slate-600 px-2.5 py-1 rounded-full">AgriTech</span>
+      </div>
+      <p class="text-xs text-slate-500 flex items-center gap-1">📍 Gujarat, India</p>
+      <p class="text-sm text-slate-600">Satellite-driven agritech platform for crop monitoring and yield optimisation.</p>
+      <a href="https://mapmycrop.com" target="_blank" class="text-xs text-primary font-medium hover:underline mt-auto">Visit ↗</a>
+    </div>
+
+    <!-- ThinkMetal -->
+    <div class="card p-6 flex flex-col gap-3" data-lead="true" data-exited="false" data-writeoff="false">
+      <div class="pc-logo-wrap"><img src="https://www.yournest.in/api/uploads/images/portfolio/79109df9f35d4e3eb74048c09a2f1479.png" alt="ThinkMetal" class="max-h-12 max-w-[140px] object-contain"/></div>
+      <div class="flex items-center justify-between"><span class="font-bold text-lg">ThinkMetal</span></div>
+      <div class="flex flex-wrap gap-2">
+        <span class="text-xs font-semibold bg-primary/10 text-primary px-2.5 py-1 rounded-full">Investment Lead</span>
+        <span class="text-xs font-medium bg-slate-100 text-slate-600 px-2.5 py-1 rounded-full">Manufacturing</span>
+      </div>
+      <p class="text-xs text-slate-500 flex items-center gap-1">📍 Bengaluru, India</p>
+      <p class="text-sm text-slate-600">Compact 3D metal printing for low-volume, high-precision production.</p>
+      <a href="https://thinkmetal.co" target="_blank" class="text-xs text-primary font-medium hover:underline mt-auto">Visit ↗</a>
+    </div>
+
+    <!-- RuleZero -->
+    <div class="card p-6 flex flex-col gap-3" data-lead="true" data-exited="false" data-writeoff="false">
+      <div class="pc-logo-wrap"><img src="https://www.yournest.in/api/uploads/images/portfolio/f23a64bf7a624b0683c3da604c30354f.png" alt="RuleZero" class="max-h-12 max-w-[140px] object-contain"/></div>
+      <div class="flex items-center justify-between"><span class="font-bold text-lg">RuleZero</span></div>
+      <div class="flex flex-wrap gap-2">
+        <span class="text-xs font-semibold bg-primary/10 text-primary px-2.5 py-1 rounded-full">Investment Lead</span>
+        <span class="text-xs font-medium bg-slate-100 text-slate-600 px-2.5 py-1 rounded-full">FinTech</span>
+      </div>
+      <p class="text-xs text-slate-500 flex items-center gap-1">📍 Bengaluru, India</p>
+      <p class="text-sm text-slate-600">Equity and private markets management platform for fund administration.</p>
+      <a href="https://rulezero.com" target="_blank" class="text-xs text-primary font-medium hover:underline mt-auto">Visit ↗</a>
+    </div>
+
+    <!-- Lightspeed Photonics -->
+    <div class="card p-6 flex flex-col gap-3" data-lead="true" data-exited="false" data-writeoff="false">
+      <div class="pc-logo-wrap"><img src="https://www.yournest.in/api/uploads/images/portfolio/7d9ebd6c52154117a29bbb3771da5e51.png" alt="Lightspeed Photonics" class="max-h-12 max-w-[140px] object-contain"/></div>
+      <div class="flex items-center justify-between"><span class="font-bold text-lg">Lightspeed Photonics</span></div>
+      <div class="flex flex-wrap gap-2">
+        <span class="text-xs font-semibold bg-primary/10 text-primary px-2.5 py-1 rounded-full">Investment Lead</span>
+        <span class="text-xs font-medium bg-slate-100 text-slate-600 px-2.5 py-1 rounded-full">DeepTech</span>
+      </div>
+      <p class="text-xs text-slate-500 flex items-center gap-1">📍 Bengaluru, India</p>
+      <p class="text-sm text-slate-600">Optoelectronic processors accelerating AI and high-performance computing workloads.</p>
+      <a href="https://lightspeedphotonics.com" target="_blank" class="text-xs text-primary font-medium hover:underline mt-auto">Visit ↗</a>
+    </div>
+
+    <!-- Arya.ai — Exited -->
+    <div class="card p-6 flex flex-col gap-3 border-emerald-100" data-lead="true" data-exited="true" data-writeoff="false">
+      <div class="pc-logo-wrap"><img src="https://www.yournest.in/api/uploads/images/portfolio/2c671476f1ec448d998abd90f6c3b61f.png" alt="Arya.ai" class="max-h-12 max-w-[140px] object-contain"/></div>
+      <div class="flex items-center justify-between">
+        <span class="font-bold text-lg">Arya.ai</span>
+        <span class="text-xs font-semibold bg-emerald-100 text-emerald-700 px-2.5 py-1 rounded-full">Exited</span>
+      </div>
+      <div class="flex flex-wrap gap-2">
+        <span class="text-xs font-semibold bg-primary/10 text-primary px-2.5 py-1 rounded-full">Investment Lead</span>
+        <span class="text-xs font-medium bg-slate-100 text-slate-600 px-2.5 py-1 rounded-full">FinTech / AI</span>
+      </div>
+      <p class="text-xs text-slate-500 flex items-center gap-1">📍 Mumbai, India</p>
+      <p class="text-sm text-slate-600">Enterprise AI automation platform for finance workflows.</p>
+      <a href="https://arya.ai" target="_blank" class="text-xs text-primary font-medium hover:underline mt-auto">Visit ↗</a>
+    </div>
+
+    <!-- Altergo — Partial Exit -->
+    <div class="card p-6 flex flex-col gap-3 border-orange-100" data-lead="true" data-exited="partial" data-writeoff="false">
+      <div class="pc-logo-wrap"><img src="https://www.yournest.in/api/uploads/images/portfolio/aa7ba83648b5428cad946b6a55909230.png" alt="Altergo" class="max-h-12 max-w-[140px] object-contain"/></div>
+      <div class="flex items-center justify-between">
+        <span class="font-bold text-lg">Altergo</span>
+        <span class="text-xs font-semibold bg-orange-100 text-orange-600 px-2.5 py-1 rounded-full">Partial Exit</span>
+      </div>
+      <div class="flex flex-wrap gap-2">
+        <span class="text-xs font-semibold bg-primary/10 text-primary px-2.5 py-1 rounded-full">Investment Lead</span>
+        <span class="text-xs font-medium bg-slate-100 text-slate-600 px-2.5 py-1 rounded-full">EV / SaaS</span>
+      </div>
+      <p class="text-xs text-slate-500 flex items-center gap-1">📍 Bengaluru, India</p>
+      <p class="text-sm text-slate-600">Advanced battery management software for optimising EV fleet performance.</p>
+      <a href="https://altergo.in" target="_blank" class="text-xs text-primary font-medium hover:underline mt-auto">Visit ↗</a>
+    </div>
+
+    <!-- Argoid — Exited -->
+    <div class="card p-6 flex flex-col gap-3 border-emerald-100" data-lead="true" data-exited="true" data-writeoff="false">
+      <div class="pc-logo-wrap"><img src="https://www.yournest.in/api/uploads/images/portfolio/6ca605238a134d15a640c39740abeab9.jpg" alt="Argoid" class="max-h-12 max-w-[140px] object-contain"/></div>
+      <div class="flex items-center justify-between">
+        <span class="font-bold text-lg">Argoid</span>
+        <span class="text-xs font-semibold bg-emerald-100 text-emerald-700 px-2.5 py-1 rounded-full">Exited</span>
+      </div>
+      <div class="flex flex-wrap gap-2">
+        <span class="text-xs font-semibold bg-primary/10 text-primary px-2.5 py-1 rounded-full">Investment Lead</span>
+        <span class="text-xs font-medium bg-slate-100 text-slate-600 px-2.5 py-1 rounded-full">AI / E-Commerce</span>
+      </div>
+      <p class="text-xs text-slate-500 flex items-center gap-1">📍 Singapore</p>
+      <p class="text-sm text-slate-600">ML-powered consumer insights platform for real-time personalisation in e-commerce.</p>
+      <a href="https://argoid.com" target="_blank" class="text-xs text-primary font-medium hover:underline mt-auto">Visit ↗</a>
+    </div>
+
+    <!-- Uniphore — Exited, Analyst -->
+    <div class="card p-6 flex flex-col gap-3 border-emerald-100" data-lead="false" data-exited="true" data-writeoff="false">
+      <div class="pc-logo-wrap"><img src="https://www.yournest.in/api/uploads/images/portfolio/e997fb88a1874e8f848cbcb4c8bacea6.png" alt="Uniphore" class="max-h-12 max-w-[140px] object-contain"/></div>
+      <div class="flex items-center justify-between">
+        <span class="font-bold text-lg">Uniphore</span>
+        <span class="text-xs font-semibold bg-emerald-100 text-emerald-700 px-2.5 py-1 rounded-full">Exited</span>
+      </div>
+      <div class="flex flex-wrap gap-2">
+        <span class="text-xs font-medium bg-slate-100 text-slate-600 px-2.5 py-1 rounded-full">Analyst</span>
+        <span class="text-xs font-medium bg-slate-100 text-slate-600 px-2.5 py-1 rounded-full">Enterprise AI</span>
+      </div>
+      <p class="text-xs text-slate-500 flex items-center gap-1">📍 Chennai, India</p>
+      <p class="text-sm text-slate-600">Enterprise AI platform for conversation intelligence and automation at scale.</p>
+      <a href="https://uniphore.com" target="_blank" class="text-xs text-primary font-medium hover:underline mt-auto">Visit ↗</a>
+    </div>
+
+    <!-- SmartQ — Exited, Analyst -->
+    <div class="card p-6 flex flex-col gap-3 border-emerald-100" data-lead="false" data-exited="true" data-writeoff="false">
+      <div class="pc-logo-wrap"><img src="https://www.yournest.in/api/uploads/images/portfolio/f7fd8e3384e74fbf94e2f42d1021f72d.png" alt="SmartQ" class="max-h-12 max-w-[140px] object-contain"/></div>
+      <div class="flex items-center justify-between">
+        <span class="font-bold text-lg">SmartQ</span>
+        <span class="text-xs font-semibold bg-emerald-100 text-emerald-700 px-2.5 py-1 rounded-full">Exited</span>
+      </div>
+      <div class="flex flex-wrap gap-2">
+        <span class="text-xs font-medium bg-slate-100 text-slate-600 px-2.5 py-1 rounded-full">Analyst</span>
+        <span class="text-xs font-medium bg-slate-100 text-slate-600 px-2.5 py-1 rounded-full">FoodTech</span>
+      </div>
+      <p class="text-xs text-slate-500 flex items-center gap-1">📍 Bengaluru, India</p>
+      <p class="text-sm text-slate-600">Workplace food-tech platform managing cafeteria operations for large enterprises.</p>
+      <a href="https://smartq.in" target="_blank" class="text-xs text-primary font-medium hover:underline mt-auto">Visit ↗</a>
+    </div>
+
+    <!-- SubCom — Write-off -->
+    <div class="card p-6 flex flex-col gap-3 border-red-100" data-lead="true" data-exited="false" data-writeoff="true">
+      <div class="pc-logo-wrap bg-slate-50">
+        <span class="text-slate-400 font-bold text-xl">SC</span>
+      </div>
+      <div class="flex items-center justify-between">
+        <span class="font-bold text-lg">SubCom</span>
+        <span class="text-xs font-semibold bg-red-100 text-red-500 px-2.5 py-1 rounded-full">Write-off</span>
+      </div>
+      <div class="flex flex-wrap gap-2">
+        <span class="text-xs font-semibold bg-primary/10 text-primary px-2.5 py-1 rounded-full">Investment Lead</span>
+        <span class="text-xs font-medium bg-slate-100 text-slate-600 px-2.5 py-1 rounded-full">Cybersecurity</span>
+      </div>
+      <p class="text-xs text-slate-500 flex items-center gap-1">📍 Bengaluru, India</p>
+      <p class="text-sm text-slate-600">AI-driven endpoint cybersecurity using Habituation Neural Fabric for real-time device trust scoring.</p>
+    </div>
+
+    <!-- Koinearth — Write-off -->
+    <div class="card p-6 flex flex-col gap-3 border-red-100" data-lead="true" data-exited="false" data-writeoff="true">
+      <div class="pc-logo-wrap bg-slate-50">
+        <span class="text-slate-400 font-bold text-xl">KE</span>
+      </div>
+      <div class="flex items-center justify-between">
+        <span class="font-bold text-lg">Koinearth</span>
+        <span class="text-xs font-semibold bg-red-100 text-red-500 px-2.5 py-1 rounded-full">Write-off</span>
+      </div>
+      <div class="flex flex-wrap gap-2">
+        <span class="text-xs font-semibold bg-primary/10 text-primary px-2.5 py-1 rounded-full">Investment Lead</span>
+        <span class="text-xs font-medium bg-slate-100 text-slate-600 px-2.5 py-1 rounded-full">Blockchain</span>
+      </div>
+      <p class="text-xs text-slate-500 flex items-center gap-1">📍 Bengaluru, India</p>
+      <p class="text-sm text-slate-600">Blockchain and AI-based B2B supply chain platform for inventory visibility and invoice financing.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- VALUE ADD -->
+<section class="py-20 px-4 md:px-8 bg-slate-50 rounded-[24px] my-12" id="value-add">
+  <h2 class="text-4xl font-black text-[#111827] mb-4 text-center">Value Add for Founders</h2>
+  <p class="text-center text-slate-500 mb-16">Hands-on support across the full investment lifecycle — from first cheque to exit.</p>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div class="card p-8 bg-white">
+      <span class="material-symbols-outlined text-4xl text-primary mb-4">payments</span>
+      <h3 class="text-xl font-bold mb-3">Fundraising Support</h3>
+      <p class="text-slate-600 text-sm leading-relaxed">Facilitated bridge rounds and LP introductions, advised on fundraise timing and positioning, and supported term-sheet negotiations — including in tough market conditions where traditional capital was scarce.</p>
+    </div>
+    <div class="card p-8 bg-white">
+      <span class="material-symbols-outlined text-4xl text-primary mb-4">groups</span>
+      <h3 class="text-xl font-bold mb-3">Leadership &amp; Team Building</h3>
+      <p class="text-slate-600 text-sm leading-relaxed">Guided key hires across CFO, COS, and senior sales roles. Flagged leadership gaps early, evaluated founder equity structures at term-sheet stage, and helped build cohesive A-level teams.</p>
+    </div>
+    <div class="card p-8 bg-white">
+      <span class="material-symbols-outlined text-4xl text-primary mb-4">gavel</span>
+      <h3 class="text-xl font-bold mb-3">Board Governance</h3>
+      <p class="text-slate-600 text-sm leading-relaxed">Conducted regular MIS and budget-vs-actual reviews, monitored statutory compliance, surfaced governance risks early, and ensured investor rights were actively protected across board decisions.</p>
+    </div>
+    <div class="card p-8 bg-white">
+      <span class="material-symbols-outlined text-4xl text-primary mb-4">rocket_launch</span>
+      <h3 class="text-xl font-bold mb-3">GTM &amp; Commercialisation</h3>
+      <p class="text-slate-600 text-sm leading-relaxed">Helped portfolio companies sharpen go-to-market strategy, improve pilot-to-contract conversion rates, identify high-value customer segments, and avoid revenue concentration risk.</p>
+    </div>
+    <div class="card p-8 bg-white">
+      <span class="material-symbols-outlined text-4xl text-primary mb-4">exit_to_app</span>
+      <h3 class="text-xl font-bold mb-3">Exit Planning &amp; Execution</h3>
+      <p class="text-slate-600 text-sm leading-relaxed">Identified strategic acquirers and secondary buyers, onboarded investment bankers, aligned founders to exit timelines, and structured transactions to protect LP interests — including cross-border secondary exits.</p>
+    </div>
+    <div class="card p-8 bg-white">
+      <span class="material-symbols-outlined text-4xl text-primary mb-4">monitoring</span>
+      <h3 class="text-xl font-bold mb-3">Portfolio Monitoring</h3>
+      <p class="text-slate-600 text-sm leading-relaxed">Tracked portfolio health through standardised financial reporting, flagged runway risks proactively, drove operational best practices, and benchmarked performance against sector peers.</p>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section class="py-20 px-4 md:px-8" id="education">
+  <h2 class="text-4xl font-black text-[#111827] mb-12 text-center">Education</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+    <div class="card p-8 flex flex-col items-center text-center">
+      <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+        <span class="material-symbols-outlined text-3xl text-primary">school</span>
+      </div>
+      <h3 class="text-2xl font-bold mb-2">IESE Business School</h3>
+      <p class="text-primary font-medium mb-2">Master of Business Administration (MBA)</p>
+      <p class="text-slate-500 text-sm">2025 – 2027 · Barcelona, Spain</p>
+    </div>
+    <div class="card p-8 flex flex-col items-center text-center">
+      <div class="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mb-6">
+        <span class="material-symbols-outlined text-3xl text-slate-600">account_balance</span>
+      </div>
+      <h3 class="text-2xl font-bold mb-2">NMIMS University</h3>
+      <p class="text-slate-700 font-medium mb-2">Bachelor of Technology (B.Tech)</p>
+      <p class="text-slate-500 text-sm">Mumbai, India</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="py-24 px-4 my-12" id="contact">
+  <div class="max-w-2xl mx-auto card p-12 text-center bg-slate-50 border-0">
+    <h2 class="text-4xl font-black text-[#111827] mb-6">Let's connect</h2>
+    <p class="text-lg text-slate-600 mb-10">Whether you're a founder looking to chat, exploring VC opportunities, or interested in connecting — I'm always open.</p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="mailto:akshat.bhatnagar@iese.edu" class="flex items-center justify-center gap-2 rounded-full h-14 px-8 bg-primary hover:bg-primary-light text-white text-base font-bold transition-colors">
+        <span class="material-symbols-outlined">mail</span> Email Me
+      </a>
+      <a href="https://www.linkedin.com/in/akshatbhatnagar8" target="_blank" class="flex items-center justify-center gap-2 rounded-full h-14 px-8 border-2 border-[#E5E7EB] hover:border-primary text-[#111827] text-base font-bold transition-colors bg-white">
+        LinkedIn <span class="material-symbols-outlined">arrow_outward</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+</div>
+</div>
+</div>
+</div>
+
+<script>
+  // Portfolio filter
+  const filters = document.querySelectorAll('#portfolio-filters button');
+  const cards = document.querySelectorAll('#portfolio-grid > div');
+
+  filters.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filters.forEach(b => {
+        b.classList.remove('bg-primary', 'text-white', 'border-primary');
+        b.classList.add('text-slate-600');
+      });
+      btn.classList.add('bg-primary', 'text-white', 'border-primary');
+      btn.classList.remove('text-slate-600');
+
+      const f = btn.dataset.filter;
+      cards.forEach(card => {
+        const show = f === 'all'
+          || (f === 'lead' && card.dataset.lead === 'true')
+          || (f === 'exited' && (card.dataset.exited === 'true' || card.dataset.exited === 'partial'))
+          || (f === 'writeoff' && card.dataset.writeoff === 'true');
+        card.style.display = show ? '' : 'none';
       });
     });
-
-    // Smooth active nav highlight
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-links a');
-    window.addEventListener('scroll', () => {
-      let current = '';
-      sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) current = s.id; });
-      navLinks.forEach(a => {
-        a.style.color = a.getAttribute('href') === '#' + current ? 'var(--text)' : '';
-      });
-    });
-  </script>
-</body>
-</html>
+  });
+</script>
+</body></html>
