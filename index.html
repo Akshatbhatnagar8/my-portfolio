@@ -66,8 +66,8 @@
   <nav class="flex items-center gap-6 md:gap-8">
     <a class="text-slate-600 hover:text-primary text-sm font-medium transition-colors" href="#about">About</a>
     <a class="text-slate-600 hover:text-primary text-sm font-medium transition-colors" href="#experience">Experience</a>
-    <a class="text-slate-600 hover:text-primary text-sm font-medium transition-colors" href="#portfolio">Portfolio</a>
     <a class="text-slate-600 hover:text-primary text-sm font-medium transition-colors hidden md:block" href="#case-studies">Case Studies</a>
+    <a class="text-slate-600 hover:text-primary text-sm font-medium transition-colors" href="#portfolio">Portfolio</a>
     <a class="text-slate-600 hover:text-primary text-sm font-medium transition-colors hidden md:block" href="#value-add">Value Add</a>
     <a class="text-slate-600 hover:text-primary text-sm font-medium transition-colors hidden md:block" href="#education">Education</a>
     <a class="text-slate-600 hover:text-primary text-sm font-medium transition-colors" href="#contact">Contact</a>
@@ -126,24 +126,32 @@
       <p>Currently pursuing my MBA at IESE Business School in Barcelona to complement investment experience with global business strategy and leadership.</p>
     </div>
     <div class="flex flex-col gap-10">
-      <div class="flex flex-col gap-6">
-        <h3 class="text-xl font-bold text-[#111827]">Expertise</h3>
-        <div class="space-y-4">
-          <div>
-            <div class="flex justify-between text-sm font-medium mb-1"><span>Deal Sourcing &amp; Evaluation</span><span class="text-primary">95%</span></div>
-            <div class="w-full bg-slate-100 rounded-full h-2"><div class="bg-primary h-2 rounded-full" style="width:95%"></div></div>
+      <div class="flex flex-col gap-4">
+        <h3 class="text-xl font-bold text-[#111827]">Capabilities</h3>
+        <div class="grid grid-cols-2 gap-3">
+          <div class="flex items-start gap-3 p-3 bg-slate-50 rounded-xl border border-slate-100">
+            <span class="material-symbols-outlined text-primary text-xl mt-0.5 flex-shrink-0">travel_explore</span>
+            <div><p class="text-sm font-semibold text-[#111827]">Deal Sourcing</p><p class="text-xs text-slate-500 mt-0.5">5,000+ startups evaluated across 7 sectors &amp; 3 geographies</p></div>
           </div>
-          <div>
-            <div class="flex justify-between text-sm font-medium mb-1"><span>Portfolio Monitoring</span><span class="text-primary">90%</span></div>
-            <div class="w-full bg-slate-100 rounded-full h-2"><div class="bg-primary h-2 rounded-full" style="width:90%"></div></div>
+          <div class="flex items-start gap-3 p-3 bg-slate-50 rounded-xl border border-slate-100">
+            <span class="material-symbols-outlined text-primary text-xl mt-0.5 flex-shrink-0">analytics</span>
+            <div><p class="text-sm font-semibold text-[#111827]">Financial Analysis</p><p class="text-xs text-slate-500 mt-0.5">DCF, market &amp; transaction comps across 26+ portfolio companies</p></div>
           </div>
-          <div>
-            <div class="flex justify-between text-sm font-medium mb-1"><span>Fundraising Support</span><span class="text-primary">85%</span></div>
-            <div class="w-full bg-slate-100 rounded-full h-2"><div class="bg-primary h-2 rounded-full" style="width:85%"></div></div>
+          <div class="flex items-start gap-3 p-3 bg-slate-50 rounded-xl border border-slate-100">
+            <span class="material-symbols-outlined text-primary text-xl mt-0.5 flex-shrink-0">monitoring</span>
+            <div><p class="text-sm font-semibold text-[#111827]">Portfolio Management</p><p class="text-xs text-slate-500 mt-0.5">Board Observer on 10+ companies; MIS, governance &amp; growth</p></div>
           </div>
-          <div>
-            <div class="flex justify-between text-sm font-medium mb-1"><span>Board Governance</span><span class="text-primary">80%</span></div>
-            <div class="w-full bg-slate-100 rounded-full h-2"><div class="bg-primary h-2 rounded-full" style="width:80%"></div></div>
+          <div class="flex items-start gap-3 p-3 bg-slate-50 rounded-xl border border-slate-100">
+            <span class="material-symbols-outlined text-primary text-xl mt-0.5 flex-shrink-0">handshake</span>
+            <div><p class="text-sm font-semibold text-[#111827]">LP Relations</p><p class="text-xs text-slate-500 mt-0.5">Raised $35M; managed 200+ LP relationships globally</p></div>
+          </div>
+          <div class="flex items-start gap-3 p-3 bg-slate-50 rounded-xl border border-slate-100">
+            <span class="material-symbols-outlined text-primary text-xl mt-0.5 flex-shrink-0">gavel</span>
+            <div><p class="text-sm font-semibold text-[#111827]">Board Governance</p><p class="text-xs text-slate-500 mt-0.5">Investor rights, compliance, audit &amp; statutory reporting</p></div>
+          </div>
+          <div class="flex items-start gap-3 p-3 bg-slate-50 rounded-xl border border-slate-100">
+            <span class="material-symbols-outlined text-primary text-xl mt-0.5 flex-shrink-0">exit_to_app</span>
+            <div><p class="text-sm font-semibold text-[#111827]">Exit Execution</p><p class="text-xs text-slate-500 mt-0.5">Secondary &amp; strategic exits including cross-border transactions</p></div>
           </div>
         </div>
       </div>
@@ -213,6 +221,286 @@
   </div>
 </section>
 
+<!-- CASE STUDIES -->
+<section class="py-20 px-4 md:px-8" id="case-studies">
+  <h2 class="text-4xl font-black text-[#111827] mb-4">Investment Stories</h2>
+  <p class="text-slate-500 mb-8 max-w-xl">Eight investments — breakout exits, active bets, and an honest write-off. Each shaped how I think about founders, markets, and risk.</p>
+
+  <!-- Filters -->
+  <div class="flex flex-wrap gap-3 mb-8" id="cs-filters">
+    <button class="pill bg-primary text-white border-primary" data-filter="all">All (8)</button>
+    <button class="pill text-slate-600 hover:bg-slate-50" data-filter="active">Active (3)</button>
+    <button class="pill text-slate-600 hover:bg-slate-50" data-filter="exited">Exited (4)</button>
+    <button class="pill text-slate-600 hover:bg-slate-50" data-filter="writeoff">Write-off (1)</button>
+  </div>
+
+  <!-- Card track -->
+  <div id="cs-track">
+
+    <!-- Exponent Energy -->
+    <div class="cs-card bg-white rounded-2xl border border-slate-200 overflow-hidden" data-status="active">
+      <div class="border-l-4 border-primary px-8 pt-6 pb-4">
+        <div class="flex flex-wrap items-center gap-2 mb-1">
+          <img src="https://www.yournest.in/api/uploads/images/portfolio/5a37ac7e87dc498a9ef8998974593d2b.png" alt="Exponent Energy" class="h-10 max-w-[140px] object-contain mb-3"/>
+          <h3 class="text-xl font-black text-[#111827]">Exponent Energy</h3>
+          <span class="text-xs font-semibold bg-primary/10 text-primary px-2.5 py-1 rounded-full">Investment Lead</span>
+          <span class="text-xs font-semibold bg-blue-100 text-blue-700 px-2.5 py-1 rounded-full">Active</span>
+        </div>
+        <p class="text-sm text-slate-500">EV / Energy · Bengaluru · Fund II &amp; III</p>
+      </div>
+      <div class="px-8 py-6 grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div>
+          <p class="text-xs font-bold text-primary uppercase tracking-widest mb-2">Thesis</p>
+          <p class="text-sm text-slate-600 leading-relaxed">India's 3W cargo segment was overlooked by investors chasing passenger EVs. Exponent built refuelling-speed charging — a genuinely different product — backed by deep hardware IP and OEM partnerships.</p>
+        </div>
+        <div>
+          <p class="text-xs font-bold text-primary uppercase tracking-widest mb-2">My Role</p>
+          <p class="text-sm text-slate-600 leading-relaxed">Investment Lead &amp; Board Observer. Led Series B syndication, monitored MIS and burn against AOP, guided CFO hire.</p>
+        </div>
+        <div class="bg-blue-50 rounded-xl p-4">
+          <p class="text-xs font-bold text-blue-700 uppercase tracking-widest mb-2">Outcome</p>
+          <p class="text-sm text-slate-700 font-medium leading-relaxed">8,000 e^pack orders locked. Series B at INR 6,000 Mn pre-money from Eight Roads (fully subscribed). 32 patents filed.</p>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4">
+          <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Key Learning</p>
+          <p class="text-sm text-slate-600 leading-relaxed italic">Hardware moats are real. Patent density + OEM lock-in creates defensibility pure software rarely achieves at the early stage.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Wiom -->
+    <div class="cs-card bg-white rounded-2xl border border-slate-200 overflow-hidden" data-status="active">
+      <div class="border-l-4 border-primary px-8 pt-6 pb-4">
+        <div class="flex flex-wrap items-center gap-2 mb-1">
+          <img src="https://www.yournest.in/api/uploads/images/portfolio/6b671ab0c1494623ab921e388f620f59.png" alt="Wiom" class="h-10 max-w-[140px] object-contain mb-3"/>
+          <h3 class="text-xl font-black text-[#111827]">Wiom</h3>
+          <span class="text-xs font-semibold bg-primary/10 text-primary px-2.5 py-1 rounded-full">Investment Lead</span>
+          <span class="text-xs font-semibold bg-blue-100 text-blue-700 px-2.5 py-1 rounded-full">Active</span>
+        </div>
+        <p class="text-sm text-slate-500">Consumer / Telecom · Gurugram · Fund III</p>
+      </div>
+      <div class="px-8 py-6 grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div>
+          <p class="text-xs font-bold text-primary uppercase tracking-widest mb-2">Thesis</p>
+          <p class="text-sm text-slate-600 leading-relaxed">PM-WANI gave Wiom a license telcos structurally can't hold. We backed the regulatory asymmetry before the market consensus caught up — betting that last-mile public Wi-Fi would follow the same buildout as mobile towers.</p>
+        </div>
+        <div>
+          <p class="text-xs font-bold text-primary uppercase tracking-widest mb-2">My Role</p>
+          <p class="text-sm text-slate-600 leading-relaxed">Investment Lead &amp; Board Observer. Drove oversubscribed Series A syndication, flagged CFO gap early, tracked monthly ARR and city-by-city expansion milestones.</p>
+        </div>
+        <div class="bg-blue-50 rounded-xl p-4">
+          <p class="text-xs font-bold text-blue-700 uppercase tracking-widest mb-2">Outcome</p>
+          <p class="text-sm text-slate-700 font-medium leading-relaxed">12× revenue in 15 months. US$2.5M ARR. Series A oversubscribed. Expanding Delhi → Mumbai → tier-2 cities.</p>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4">
+          <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Key Learning</p>
+          <p class="text-sm text-slate-600 leading-relaxed italic">Regulatory moats can outlast IP moats. The job is finding structural asymmetry before the consensus does — and having the conviction to back it early.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- QpiAI -->
+    <div class="cs-card bg-white rounded-2xl border border-slate-200 overflow-hidden" data-status="active">
+      <div class="border-l-4 border-primary px-8 pt-6 pb-4">
+        <div class="flex flex-wrap items-center gap-2 mb-1">
+          <img src="https://www.yournest.in/api/uploads/images/portfolio/8dbf18459b0c4f7dbcf1b10a1280a8d4.png" alt="QpiAI" class="h-10 max-w-[140px] object-contain mb-3"/>
+          <h3 class="text-xl font-black text-[#111827]">QpiAI</h3>
+          <span class="text-xs font-semibold bg-primary/10 text-primary px-2.5 py-1 rounded-full">Investment Lead</span>
+          <span class="text-xs font-semibold bg-blue-100 text-blue-700 px-2.5 py-1 rounded-full">Active</span>
+        </div>
+        <p class="text-sm text-slate-500">Quantum / AI · Bengaluru · Fund II</p>
+      </div>
+      <div class="px-8 py-6 grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div>
+          <p class="text-xs font-bold text-primary uppercase tracking-widest mb-2">Thesis</p>
+          <p class="text-sm text-slate-600 leading-relaxed">One of the few teams globally building both the platform and application layer for quantum-AI. An inevitable market, a rare team — the bet was on the team's technology depth, with patience required for market timing.</p>
+        </div>
+        <div>
+          <p class="text-xs font-bold text-primary uppercase tracking-widest mb-2">My Role</p>
+          <p class="text-sm text-slate-600 leading-relaxed">Investment Lead &amp; Board Observer. Developed internal investment thesis, monitored R&amp;D and pilot milestones, shaped fundraising narrative towards institutional investors.</p>
+        </div>
+        <div class="bg-blue-50 rounded-xl p-4">
+          <p class="text-xs font-bold text-blue-700 uppercase tracking-widest mb-2">Status</p>
+          <p class="text-sm text-slate-700 font-medium leading-relaxed">Active. Scaling pilots in industrial and defence. One of India's most credible quantum-AI platforms.</p>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4">
+          <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Key Learning</p>
+          <p class="text-sm text-slate-600 leading-relaxed italic">Deep tech: separate technology risk from market timing risk. QpiAI had low tech risk (world-class team, strong IP) — the thesis accepted high timing risk consciously.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Uniphore -->
+    <div class="cs-card bg-white rounded-2xl border border-slate-200 overflow-hidden" data-status="exited">
+      <div class="border-l-4 border-emerald-500 px-8 pt-6 pb-4">
+        <div class="flex flex-wrap items-center gap-2 mb-1">
+          <img src="https://www.yournest.in/api/uploads/images/portfolio/e997fb88a1874e8f848cbcb4c8bacea6.png" alt="Uniphore" class="h-10 max-w-[140px] object-contain mb-3"/>
+          <h3 class="text-xl font-black text-[#111827]">Uniphore</h3>
+          <span class="text-xs font-medium bg-slate-100 text-slate-600 px-2.5 py-1 rounded-full">Analyst</span>
+          <span class="text-xs font-semibold bg-emerald-100 text-emerald-700 px-2.5 py-1 rounded-full">Exited · 7.7× MOIC</span>
+        </div>
+        <p class="text-sm text-slate-500">Enterprise AI · Chennai · Fund I</p>
+      </div>
+      <div class="px-8 py-6 grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div>
+          <p class="text-xs font-bold text-primary uppercase tracking-widest mb-2">Thesis</p>
+          <p class="text-sm text-slate-600 leading-relaxed">Conversational AI for enterprise call centres before "AI" was a category. After 3 pivots, real PMF with large BPOs who couldn't function without it. John Chambers (ex-Cisco CEO) backing gave rare global credibility.</p>
+        </div>
+        <div>
+          <p class="text-xs font-bold text-primary uppercase tracking-widest mb-2">My Role</p>
+          <p class="text-sm text-slate-600 leading-relaxed">Analyst. Supported valuation analysis across funding rounds using DCF and market approaches. Contributed to exit structuring and secondary transaction logistics.</p>
+        </div>
+        <div class="bg-emerald-50 rounded-xl p-4">
+          <p class="text-xs font-bold text-emerald-700 uppercase tracking-widest mb-2">Outcome</p>
+          <p class="text-sm text-slate-700 font-medium leading-relaxed">Exited at 7.7× MOIC. Scaled to SE Asia and USA. Global enterprise conversation-intelligence platform.</p>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4">
+          <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Key Learning</p>
+          <p class="text-sm text-slate-600 leading-relaxed italic">Founders made future access conditional on joining a 2020 secondary. We participated. Liquidity windows in VC are finite — missing them costs more than waiting for a bigger multiple.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Arya.ai -->
+    <div class="cs-card bg-white rounded-2xl border border-slate-200 overflow-hidden" data-status="exited">
+      <div class="border-l-4 border-emerald-500 px-8 pt-6 pb-4">
+        <div class="flex flex-wrap items-center gap-2 mb-1">
+          <img src="https://www.yournest.in/api/uploads/images/portfolio/2c671476f1ec448d998abd90f6c3b61f.png" alt="Arya.ai" class="h-10 max-w-[140px] object-contain mb-3"/>
+          <h3 class="text-xl font-black text-[#111827]">Arya.ai</h3>
+          <span class="text-xs font-semibold bg-primary/10 text-primary px-2.5 py-1 rounded-full">Investment Lead</span>
+          <span class="text-xs font-semibold bg-emerald-100 text-emerald-700 px-2.5 py-1 rounded-full">Exited</span>
+        </div>
+        <p class="text-sm text-slate-500">FinTech / AI · Mumbai · Fund I</p>
+      </div>
+      <div class="px-8 py-6 grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div>
+          <p class="text-xs font-bold text-primary uppercase tracking-widest mb-2">Thesis</p>
+          <p class="text-sm text-slate-600 leading-relaxed">Enterprise AI for BFSI with real institutional customers and a path to 40% EBITDA margins — genuinely rare in India at the time. Explainable AI for compliance-heavy banks was a strong moat.</p>
+        </div>
+        <div>
+          <p class="text-xs font-bold text-primary uppercase tracking-widest mb-2">My Role</p>
+          <p class="text-sm text-slate-600 leading-relaxed">Investment Lead &amp; Board Observer. Navigated multiple failed term sheets without losing conviction, flagged a founder equity dispute early and pushed for resolution, guided exit banker appointment.</p>
+        </div>
+        <div class="bg-emerald-50 rounded-xl p-4">
+          <p class="text-xs font-bold text-emerald-700 uppercase tracking-widest mb-2">Outcome</p>
+          <p class="text-sm text-slate-700 font-medium leading-relaxed">Exited. 9× ARR growth YoY. 40% EBITDA margin. PAT positive. 2 patents. Clean exit above entry valuation.</p>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4">
+          <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Key Learning</p>
+          <p class="text-sm text-slate-600 leading-relaxed italic">Governance issues don't self-resolve. Catching the founder equity dispute early and pushing for resolution enabled a clean exit — delayed action would have killed it.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SmartQ -->
+    <div class="cs-card bg-white rounded-2xl border border-slate-200 overflow-hidden" data-status="exited">
+      <div class="border-l-4 border-emerald-500 px-8 pt-6 pb-4">
+        <div class="flex flex-wrap items-center gap-2 mb-1">
+          <img src="https://www.yournest.in/api/uploads/images/portfolio/f7fd8e3384e74fbf94e2f42d1021f72d.png" alt="SmartQ" class="h-10 max-w-[140px] object-contain mb-3"/>
+          <h3 class="text-xl font-black text-[#111827]">SmartQ</h3>
+          <span class="text-xs font-medium bg-slate-100 text-slate-600 px-2.5 py-1 rounded-full">Analyst</span>
+          <span class="text-xs font-semibold bg-emerald-100 text-emerald-700 px-2.5 py-1 rounded-full">Acquired · Compass Group</span>
+        </div>
+        <p class="text-sm text-slate-500">FoodTech · Bengaluru · Fund I</p>
+      </div>
+      <div class="px-8 py-6 grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div>
+          <p class="text-xs font-bold text-primary uppercase tracking-widest mb-2">Thesis</p>
+          <p class="text-sm text-slate-600 leading-relaxed">Saving 15–45 min per corporate employee per meal — a "need to have" with exceptional retention across marquee accounts like Compass Group. First-mover in a market with low replication risk.</p>
+        </div>
+        <div>
+          <p class="text-xs font-bold text-primary uppercase tracking-widest mb-2">My Role</p>
+          <p class="text-sm text-slate-600 leading-relaxed">Analyst. Supported YourNest-assisted bridge rounds to maintain runway, tracked monthly MIS and order volume, contributed to exit transaction management.</p>
+        </div>
+        <div class="bg-emerald-50 rounded-xl p-4">
+          <p class="text-xs font-bold text-emerald-700 uppercase tracking-widest mb-2">Outcome</p>
+          <p class="text-sm text-slate-700 font-medium leading-relaxed">Acquired by Compass Group — a global food services giant and their own marquee customer. Daily orders: 150 → 150,000.</p>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4">
+          <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Key Learning</p>
+          <p class="text-sm text-slate-600 leading-relaxed italic">The best acquirer is often already your customer. Customer delight is an underrated M&amp;A signal — Compass Group bought what they couldn't afford to lose.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Argoid -->
+    <div class="cs-card bg-white rounded-2xl border border-slate-200 overflow-hidden" data-status="exited">
+      <div class="border-l-4 border-emerald-500 px-8 pt-6 pb-4">
+        <div class="flex flex-wrap items-center gap-2 mb-1">
+          <img src="https://www.yournest.in/api/uploads/images/portfolio/6ca605238a134d15a640c39740abeab9.jpg" alt="Argoid" class="h-10 max-w-[140px] object-contain mb-3"/>
+          <h3 class="text-xl font-black text-[#111827]">Argoid</h3>
+          <span class="text-xs font-semibold bg-primary/10 text-primary px-2.5 py-1 rounded-full">Investment Lead</span>
+          <span class="text-xs font-semibold bg-emerald-100 text-emerald-700 px-2.5 py-1 rounded-full">Exited</span>
+        </div>
+        <p class="text-sm text-slate-500">AI / E-Commerce · Singapore · Fund II</p>
+      </div>
+      <div class="px-8 py-6 grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div>
+          <p class="text-xs font-bold text-primary uppercase tracking-widest mb-2">Thesis</p>
+          <p class="text-sm text-slate-600 leading-relaxed">ML personalisation for e-commerce with distribution potential across SEA and the US. A rare emerging-market AI play with genuine global reach from a Singapore base.</p>
+        </div>
+        <div>
+          <p class="text-xs font-bold text-primary uppercase tracking-widest mb-2">My Role</p>
+          <p class="text-sm text-slate-600 leading-relaxed">Investment Lead. Led cross-border secondary exit after a downround — managed LP communications, legal structuring, and Singapore entity complexities.</p>
+        </div>
+        <div class="bg-emerald-50 rounded-xl p-4">
+          <p class="text-xs font-bold text-emerald-700 uppercase tracking-widest mb-2">Outcome</p>
+          <p class="text-sm text-slate-700 font-medium leading-relaxed">Exited via cross-border secondary. Pre-money fell US$12M → US$9M but capital was returned to LPs.</p>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4">
+          <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Key Learning</p>
+          <p class="text-sm text-slate-600 leading-relaxed italic">A managed exit beats a write-off. Executing cleanly under difficult conditions — downround, cross-border, unhappy LPs — is a distinct and learnable skill.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Koinearth -->
+    <div class="cs-card bg-white rounded-2xl border border-slate-200 overflow-hidden" data-status="writeoff">
+      <div class="border-l-4 border-red-400 px-8 pt-6 pb-4">
+        <div class="flex flex-wrap items-center gap-2 mb-1">
+          <div class="w-10 h-10 rounded-lg bg-slate-200 flex items-center justify-center mb-3"><span class="text-sm font-black text-slate-500">KE</span></div>
+          <h3 class="text-xl font-black text-[#111827]">Koinearth</h3>
+          <span class="text-xs font-semibold bg-primary/10 text-primary px-2.5 py-1 rounded-full">Investment Lead</span>
+          <span class="text-xs font-semibold bg-red-100 text-red-500 px-2.5 py-1 rounded-full">Write-off</span>
+        </div>
+        <p class="text-sm text-slate-500">Blockchain · Bengaluru · Fund II</p>
+      </div>
+      <div class="px-8 py-6 grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div>
+          <p class="text-xs font-bold text-primary uppercase tracking-widest mb-2">Thesis</p>
+          <p class="text-sm text-slate-600 leading-relaxed">Blockchain for B2B supply chain at a moment when enterprise blockchain was gaining traction. Real problem (inventory visibility + invoice financing), credible team, addressable market.</p>
+        </div>
+        <div>
+          <p class="text-xs font-bold text-primary uppercase tracking-widest mb-2">My Role</p>
+          <p class="text-sm text-slate-600 leading-relaxed">Investment Lead. Monitored pivot decisions, raised governance flags as strategy shifted, managed the acquisition process to minimise LP losses.</p>
+        </div>
+        <div class="bg-red-50 rounded-xl p-4">
+          <p class="text-xs font-bold text-red-500 uppercase tracking-widest mb-2">Outcome</p>
+          <p class="text-sm text-slate-700 font-medium leading-relaxed">Written off. Pivoted from supply chain to NFTs, failed to scale, acquired at negligible value.</p>
+        </div>
+        <div class="bg-slate-50 rounded-xl p-4">
+          <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Key Learning</p>
+          <p class="text-sm text-slate-600 leading-relaxed italic">Thesis drift toward a hype cycle signals desperation, not conviction. We now pressure-test every pivot against this question explicitly at board level.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Navigation -->
+  <div class="flex items-center justify-between mt-8">
+    <button id="cs-prev" class="w-11 h-11 rounded-full border-2 border-slate-200 flex items-center justify-center hover:border-primary hover:text-primary transition-colors disabled:opacity-30 disabled:cursor-not-allowed" aria-label="Previous">
+      <span class="material-symbols-outlined">chevron_left</span>
+    </button>
+    <div class="flex items-center gap-4">
+      <div id="cs-dots" class="flex items-center gap-2"></div>
+      <span id="cs-counter" class="text-sm text-slate-400 font-medium tabular-nums">1 / 8</span>
+    </div>
+    <button id="cs-next" class="w-11 h-11 rounded-full border-2 border-slate-200 flex items-center justify-center hover:border-primary hover:text-primary transition-colors disabled:opacity-30 disabled:cursor-not-allowed" aria-label="Next">
+      <span class="material-symbols-outlined">chevron_right</span>
+    </button>
+  </div>
+</section>
 <!-- PORTFOLIO -->
 <section class="py-20 px-4 md:px-8" id="portfolio">
   <h2 class="text-4xl font-black text-[#111827] mb-4 text-center">Portfolio</h2>
@@ -459,278 +747,6 @@
   </div>
 </section>
 
-<!-- CASE STUDIES -->
-<section class="py-20 px-4 md:px-8" id="case-studies">
-  <h2 class="text-4xl font-black text-[#111827] mb-4">Investment Stories</h2>
-  <p class="text-slate-500 mb-8 max-w-xl">Eight investments — breakout exits, active bets, and an honest write-off. Each shaped how I think about founders, markets, and risk.</p>
-
-  <!-- Filters -->
-  <div class="flex flex-wrap gap-3 mb-8" id="cs-filters">
-    <button class="pill bg-primary text-white border-primary" data-filter="all">All (8)</button>
-    <button class="pill text-slate-600 hover:bg-slate-50" data-filter="active">Active (3)</button>
-    <button class="pill text-slate-600 hover:bg-slate-50" data-filter="exited">Exited (4)</button>
-    <button class="pill text-slate-600 hover:bg-slate-50" data-filter="writeoff">Write-off (1)</button>
-  </div>
-
-  <!-- Card track -->
-  <div id="cs-track">
-
-    <!-- Exponent Energy -->
-    <div class="cs-card bg-white rounded-2xl border border-slate-200 overflow-hidden" data-status="active">
-      <div class="border-l-4 border-primary px-8 pt-6 pb-4">
-        <div class="flex flex-wrap items-center gap-2 mb-1">
-          <h3 class="text-xl font-black text-[#111827]">Exponent Energy</h3>
-          <span class="text-xs font-semibold bg-primary/10 text-primary px-2.5 py-1 rounded-full">Investment Lead</span>
-          <span class="text-xs font-semibold bg-blue-100 text-blue-700 px-2.5 py-1 rounded-full">Active</span>
-        </div>
-        <p class="text-sm text-slate-500">EV / Energy · Bengaluru · Fund II &amp; III</p>
-      </div>
-      <div class="px-8 py-6 grid grid-cols-1 md:grid-cols-2 gap-5">
-        <div>
-          <p class="text-xs font-bold text-primary uppercase tracking-widest mb-2">Thesis</p>
-          <p class="text-sm text-slate-600 leading-relaxed">India's 3W cargo segment was overlooked by investors chasing passenger EVs. Exponent built refuelling-speed charging — a genuinely different product — backed by deep hardware IP and OEM partnerships.</p>
-        </div>
-        <div>
-          <p class="text-xs font-bold text-primary uppercase tracking-widest mb-2">My Role</p>
-          <p class="text-sm text-slate-600 leading-relaxed">Investment Lead &amp; Board Observer. Led Series B syndication, monitored MIS and burn against AOP, guided CFO hire.</p>
-        </div>
-        <div class="bg-blue-50 rounded-xl p-4">
-          <p class="text-xs font-bold text-blue-700 uppercase tracking-widest mb-2">Outcome</p>
-          <p class="text-sm text-slate-700 font-medium leading-relaxed">8,000 e^pack orders locked. Series B at INR 6,000 Mn pre-money from Eight Roads (fully subscribed). 32 patents filed.</p>
-        </div>
-        <div class="bg-slate-50 rounded-xl p-4">
-          <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Key Learning</p>
-          <p class="text-sm text-slate-600 leading-relaxed italic">Hardware moats are real. Patent density + OEM lock-in creates defensibility pure software rarely achieves at the early stage.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Wiom -->
-    <div class="cs-card bg-white rounded-2xl border border-slate-200 overflow-hidden" data-status="active">
-      <div class="border-l-4 border-primary px-8 pt-6 pb-4">
-        <div class="flex flex-wrap items-center gap-2 mb-1">
-          <h3 class="text-xl font-black text-[#111827]">Wiom</h3>
-          <span class="text-xs font-semibold bg-primary/10 text-primary px-2.5 py-1 rounded-full">Investment Lead</span>
-          <span class="text-xs font-semibold bg-blue-100 text-blue-700 px-2.5 py-1 rounded-full">Active</span>
-        </div>
-        <p class="text-sm text-slate-500">Consumer / Telecom · Gurugram · Fund III</p>
-      </div>
-      <div class="px-8 py-6 grid grid-cols-1 md:grid-cols-2 gap-5">
-        <div>
-          <p class="text-xs font-bold text-primary uppercase tracking-widest mb-2">Thesis</p>
-          <p class="text-sm text-slate-600 leading-relaxed">PM-WANI gave Wiom a license telcos structurally can't hold. We backed the regulatory asymmetry before the market consensus caught up — betting that last-mile public Wi-Fi would follow the same buildout as mobile towers.</p>
-        </div>
-        <div>
-          <p class="text-xs font-bold text-primary uppercase tracking-widest mb-2">My Role</p>
-          <p class="text-sm text-slate-600 leading-relaxed">Investment Lead &amp; Board Observer. Drove oversubscribed Series A syndication, flagged CFO gap early, tracked monthly ARR and city-by-city expansion milestones.</p>
-        </div>
-        <div class="bg-blue-50 rounded-xl p-4">
-          <p class="text-xs font-bold text-blue-700 uppercase tracking-widest mb-2">Outcome</p>
-          <p class="text-sm text-slate-700 font-medium leading-relaxed">12× revenue in 15 months. US$2.5M ARR. Series A oversubscribed. Expanding Delhi → Mumbai → tier-2 cities.</p>
-        </div>
-        <div class="bg-slate-50 rounded-xl p-4">
-          <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Key Learning</p>
-          <p class="text-sm text-slate-600 leading-relaxed italic">Regulatory moats can outlast IP moats. The job is finding structural asymmetry before the consensus does — and having the conviction to back it early.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- QpiAI -->
-    <div class="cs-card bg-white rounded-2xl border border-slate-200 overflow-hidden" data-status="active">
-      <div class="border-l-4 border-primary px-8 pt-6 pb-4">
-        <div class="flex flex-wrap items-center gap-2 mb-1">
-          <h3 class="text-xl font-black text-[#111827]">QpiAI</h3>
-          <span class="text-xs font-semibold bg-primary/10 text-primary px-2.5 py-1 rounded-full">Investment Lead</span>
-          <span class="text-xs font-semibold bg-blue-100 text-blue-700 px-2.5 py-1 rounded-full">Active</span>
-        </div>
-        <p class="text-sm text-slate-500">Quantum / AI · Bengaluru · Fund II</p>
-      </div>
-      <div class="px-8 py-6 grid grid-cols-1 md:grid-cols-2 gap-5">
-        <div>
-          <p class="text-xs font-bold text-primary uppercase tracking-widest mb-2">Thesis</p>
-          <p class="text-sm text-slate-600 leading-relaxed">One of the few teams globally building both the platform and application layer for quantum-AI. An inevitable market, a rare team — the bet was on the team's technology depth, with patience required for market timing.</p>
-        </div>
-        <div>
-          <p class="text-xs font-bold text-primary uppercase tracking-widest mb-2">My Role</p>
-          <p class="text-sm text-slate-600 leading-relaxed">Investment Lead &amp; Board Observer. Developed internal investment thesis, monitored R&amp;D and pilot milestones, shaped fundraising narrative towards institutional investors.</p>
-        </div>
-        <div class="bg-blue-50 rounded-xl p-4">
-          <p class="text-xs font-bold text-blue-700 uppercase tracking-widest mb-2">Status</p>
-          <p class="text-sm text-slate-700 font-medium leading-relaxed">Active. Scaling pilots in industrial and defence. One of India's most credible quantum-AI platforms.</p>
-        </div>
-        <div class="bg-slate-50 rounded-xl p-4">
-          <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Key Learning</p>
-          <p class="text-sm text-slate-600 leading-relaxed italic">Deep tech: separate technology risk from market timing risk. QpiAI had low tech risk (world-class team, strong IP) — the thesis accepted high timing risk consciously.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Uniphore -->
-    <div class="cs-card bg-white rounded-2xl border border-slate-200 overflow-hidden" data-status="exited">
-      <div class="border-l-4 border-emerald-500 px-8 pt-6 pb-4">
-        <div class="flex flex-wrap items-center gap-2 mb-1">
-          <h3 class="text-xl font-black text-[#111827]">Uniphore</h3>
-          <span class="text-xs font-medium bg-slate-100 text-slate-600 px-2.5 py-1 rounded-full">Analyst</span>
-          <span class="text-xs font-semibold bg-emerald-100 text-emerald-700 px-2.5 py-1 rounded-full">Exited · 7.7× MOIC</span>
-        </div>
-        <p class="text-sm text-slate-500">Enterprise AI · Chennai · Fund I</p>
-      </div>
-      <div class="px-8 py-6 grid grid-cols-1 md:grid-cols-2 gap-5">
-        <div>
-          <p class="text-xs font-bold text-primary uppercase tracking-widest mb-2">Thesis</p>
-          <p class="text-sm text-slate-600 leading-relaxed">Conversational AI for enterprise call centres before "AI" was a category. After 3 pivots, real PMF with large BPOs who couldn't function without it. John Chambers (ex-Cisco CEO) backing gave rare global credibility.</p>
-        </div>
-        <div>
-          <p class="text-xs font-bold text-primary uppercase tracking-widest mb-2">My Role</p>
-          <p class="text-sm text-slate-600 leading-relaxed">Analyst. Supported valuation analysis across funding rounds using DCF and market approaches. Contributed to exit structuring and secondary transaction logistics.</p>
-        </div>
-        <div class="bg-emerald-50 rounded-xl p-4">
-          <p class="text-xs font-bold text-emerald-700 uppercase tracking-widest mb-2">Outcome</p>
-          <p class="text-sm text-slate-700 font-medium leading-relaxed">Exited at 7.7× MOIC. Scaled to SE Asia and USA. Global enterprise conversation-intelligence platform.</p>
-        </div>
-        <div class="bg-slate-50 rounded-xl p-4">
-          <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Key Learning</p>
-          <p class="text-sm text-slate-600 leading-relaxed italic">Founders made future access conditional on joining a 2020 secondary. We participated. Liquidity windows in VC are finite — missing them costs more than waiting for a bigger multiple.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Arya.ai -->
-    <div class="cs-card bg-white rounded-2xl border border-slate-200 overflow-hidden" data-status="exited">
-      <div class="border-l-4 border-emerald-500 px-8 pt-6 pb-4">
-        <div class="flex flex-wrap items-center gap-2 mb-1">
-          <h3 class="text-xl font-black text-[#111827]">Arya.ai</h3>
-          <span class="text-xs font-semibold bg-primary/10 text-primary px-2.5 py-1 rounded-full">Investment Lead</span>
-          <span class="text-xs font-semibold bg-emerald-100 text-emerald-700 px-2.5 py-1 rounded-full">Exited</span>
-        </div>
-        <p class="text-sm text-slate-500">FinTech / AI · Mumbai · Fund I</p>
-      </div>
-      <div class="px-8 py-6 grid grid-cols-1 md:grid-cols-2 gap-5">
-        <div>
-          <p class="text-xs font-bold text-primary uppercase tracking-widest mb-2">Thesis</p>
-          <p class="text-sm text-slate-600 leading-relaxed">Enterprise AI for BFSI with real institutional customers and a path to 40% EBITDA margins — genuinely rare in India at the time. Explainable AI for compliance-heavy banks was a strong moat.</p>
-        </div>
-        <div>
-          <p class="text-xs font-bold text-primary uppercase tracking-widest mb-2">My Role</p>
-          <p class="text-sm text-slate-600 leading-relaxed">Investment Lead &amp; Board Observer. Navigated multiple failed term sheets without losing conviction, flagged a founder equity dispute early and pushed for resolution, guided exit banker appointment.</p>
-        </div>
-        <div class="bg-emerald-50 rounded-xl p-4">
-          <p class="text-xs font-bold text-emerald-700 uppercase tracking-widest mb-2">Outcome</p>
-          <p class="text-sm text-slate-700 font-medium leading-relaxed">Exited. 9× ARR growth YoY. 40% EBITDA margin. PAT positive. 2 patents. Clean exit above entry valuation.</p>
-        </div>
-        <div class="bg-slate-50 rounded-xl p-4">
-          <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Key Learning</p>
-          <p class="text-sm text-slate-600 leading-relaxed italic">Governance issues don't self-resolve. Catching the founder equity dispute early and pushing for resolution enabled a clean exit — delayed action would have killed it.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- SmartQ -->
-    <div class="cs-card bg-white rounded-2xl border border-slate-200 overflow-hidden" data-status="exited">
-      <div class="border-l-4 border-emerald-500 px-8 pt-6 pb-4">
-        <div class="flex flex-wrap items-center gap-2 mb-1">
-          <h3 class="text-xl font-black text-[#111827]">SmartQ</h3>
-          <span class="text-xs font-medium bg-slate-100 text-slate-600 px-2.5 py-1 rounded-full">Analyst</span>
-          <span class="text-xs font-semibold bg-emerald-100 text-emerald-700 px-2.5 py-1 rounded-full">Acquired · Compass Group</span>
-        </div>
-        <p class="text-sm text-slate-500">FoodTech · Bengaluru · Fund I</p>
-      </div>
-      <div class="px-8 py-6 grid grid-cols-1 md:grid-cols-2 gap-5">
-        <div>
-          <p class="text-xs font-bold text-primary uppercase tracking-widest mb-2">Thesis</p>
-          <p class="text-sm text-slate-600 leading-relaxed">Saving 15–45 min per corporate employee per meal — a "need to have" with exceptional retention across marquee accounts like Compass Group. First-mover in a market with low replication risk.</p>
-        </div>
-        <div>
-          <p class="text-xs font-bold text-primary uppercase tracking-widest mb-2">My Role</p>
-          <p class="text-sm text-slate-600 leading-relaxed">Analyst. Supported YourNest-assisted bridge rounds to maintain runway, tracked monthly MIS and order volume, contributed to exit transaction management.</p>
-        </div>
-        <div class="bg-emerald-50 rounded-xl p-4">
-          <p class="text-xs font-bold text-emerald-700 uppercase tracking-widest mb-2">Outcome</p>
-          <p class="text-sm text-slate-700 font-medium leading-relaxed">Acquired by Compass Group — a global food services giant and their own marquee customer. Daily orders: 150 → 150,000.</p>
-        </div>
-        <div class="bg-slate-50 rounded-xl p-4">
-          <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Key Learning</p>
-          <p class="text-sm text-slate-600 leading-relaxed italic">The best acquirer is often already your customer. Customer delight is an underrated M&amp;A signal — Compass Group bought what they couldn't afford to lose.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Argoid -->
-    <div class="cs-card bg-white rounded-2xl border border-slate-200 overflow-hidden" data-status="exited">
-      <div class="border-l-4 border-emerald-500 px-8 pt-6 pb-4">
-        <div class="flex flex-wrap items-center gap-2 mb-1">
-          <h3 class="text-xl font-black text-[#111827]">Argoid</h3>
-          <span class="text-xs font-semibold bg-primary/10 text-primary px-2.5 py-1 rounded-full">Investment Lead</span>
-          <span class="text-xs font-semibold bg-emerald-100 text-emerald-700 px-2.5 py-1 rounded-full">Exited</span>
-        </div>
-        <p class="text-sm text-slate-500">AI / E-Commerce · Singapore · Fund II</p>
-      </div>
-      <div class="px-8 py-6 grid grid-cols-1 md:grid-cols-2 gap-5">
-        <div>
-          <p class="text-xs font-bold text-primary uppercase tracking-widest mb-2">Thesis</p>
-          <p class="text-sm text-slate-600 leading-relaxed">ML personalisation for e-commerce with distribution potential across SEA and the US. A rare emerging-market AI play with genuine global reach from a Singapore base.</p>
-        </div>
-        <div>
-          <p class="text-xs font-bold text-primary uppercase tracking-widest mb-2">My Role</p>
-          <p class="text-sm text-slate-600 leading-relaxed">Investment Lead. Led cross-border secondary exit after a downround — managed LP communications, legal structuring, and Singapore entity complexities.</p>
-        </div>
-        <div class="bg-emerald-50 rounded-xl p-4">
-          <p class="text-xs font-bold text-emerald-700 uppercase tracking-widest mb-2">Outcome</p>
-          <p class="text-sm text-slate-700 font-medium leading-relaxed">Exited via cross-border secondary. Pre-money fell US$12M → US$9M but capital was returned to LPs.</p>
-        </div>
-        <div class="bg-slate-50 rounded-xl p-4">
-          <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Key Learning</p>
-          <p class="text-sm text-slate-600 leading-relaxed italic">A managed exit beats a write-off. Executing cleanly under difficult conditions — downround, cross-border, unhappy LPs — is a distinct and learnable skill.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Koinearth -->
-    <div class="cs-card bg-white rounded-2xl border border-slate-200 overflow-hidden" data-status="writeoff">
-      <div class="border-l-4 border-red-400 px-8 pt-6 pb-4">
-        <div class="flex flex-wrap items-center gap-2 mb-1">
-          <h3 class="text-xl font-black text-[#111827]">Koinearth</h3>
-          <span class="text-xs font-semibold bg-primary/10 text-primary px-2.5 py-1 rounded-full">Investment Lead</span>
-          <span class="text-xs font-semibold bg-red-100 text-red-500 px-2.5 py-1 rounded-full">Write-off</span>
-        </div>
-        <p class="text-sm text-slate-500">Blockchain · Bengaluru · Fund II</p>
-      </div>
-      <div class="px-8 py-6 grid grid-cols-1 md:grid-cols-2 gap-5">
-        <div>
-          <p class="text-xs font-bold text-primary uppercase tracking-widest mb-2">Thesis</p>
-          <p class="text-sm text-slate-600 leading-relaxed">Blockchain for B2B supply chain at a moment when enterprise blockchain was gaining traction. Real problem (inventory visibility + invoice financing), credible team, addressable market.</p>
-        </div>
-        <div>
-          <p class="text-xs font-bold text-primary uppercase tracking-widest mb-2">My Role</p>
-          <p class="text-sm text-slate-600 leading-relaxed">Investment Lead. Monitored pivot decisions, raised governance flags as strategy shifted, managed the acquisition process to minimise LP losses.</p>
-        </div>
-        <div class="bg-red-50 rounded-xl p-4">
-          <p class="text-xs font-bold text-red-500 uppercase tracking-widest mb-2">Outcome</p>
-          <p class="text-sm text-slate-700 font-medium leading-relaxed">Written off. Pivoted from supply chain to NFTs, failed to scale, acquired at negligible value.</p>
-        </div>
-        <div class="bg-slate-50 rounded-xl p-4">
-          <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Key Learning</p>
-          <p class="text-sm text-slate-600 leading-relaxed italic">Thesis drift toward a hype cycle signals desperation, not conviction. We now pressure-test every pivot against this question explicitly at board level.</p>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- Navigation -->
-  <div class="flex items-center justify-between mt-8">
-    <button id="cs-prev" class="w-11 h-11 rounded-full border-2 border-slate-200 flex items-center justify-center hover:border-primary hover:text-primary transition-colors disabled:opacity-30 disabled:cursor-not-allowed" aria-label="Previous">
-      <span class="material-symbols-outlined">chevron_left</span>
-    </button>
-    <div class="flex items-center gap-4">
-      <div id="cs-dots" class="flex items-center gap-2"></div>
-      <span id="cs-counter" class="text-sm text-slate-400 font-medium tabular-nums">1 / 8</span>
-    </div>
-    <button id="cs-next" class="w-11 h-11 rounded-full border-2 border-slate-200 flex items-center justify-center hover:border-primary hover:text-primary transition-colors disabled:opacity-30 disabled:cursor-not-allowed" aria-label="Next">
-      <span class="material-symbols-outlined">chevron_right</span>
-    </button>
-  </div>
-</section>
 <!-- VALUE ADD -->
 <section class="py-20 px-4 md:px-8 bg-slate-50 rounded-[24px] my-12" id="value-add">
   <h2 class="text-4xl font-black text-[#111827] mb-4 text-center">Value Add for Founders</h2>
